@@ -24,11 +24,16 @@ RSpec.describe Alimento do
 			expect(comida.terreno).to eq 164.0
 		end
 	end
+
+	# Existe un m´etodo para obtener el nombre del alimento.
+	context "for the class Alimento" do
+		it "should exist a method to get the name" do
+			expect(Alimento.method_defined? :get_name).to eq true
+		end
+	end
 end
 
 
-# Existe un m´etodo para obtener el nombre del alimento.
-# 2
 # Existe un m´etodo para obtener las emisiones de gases de efecto invernadero.
 # Existe un m´etodo para obtener el terreno utilizado.
 # Existe un m´etodo para obtener el alimento formateado.

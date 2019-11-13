@@ -7,4 +7,8 @@ class Alimento
 		@gei = gei
 		@terreno = terreno
 	end
+
+	def get_name
+		@name
+	end	
 end
