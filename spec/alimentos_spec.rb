@@ -38,10 +38,16 @@ RSpec.describe Alimento do
 			expect(Alimento.method_defined? :get_gei).to eq true
 		end
 	end
+
+	# Existe un m´etodo para obtener el terreno utilizado.
+	context "for the class Alimento" do
+		it "should exist a method to get the ground" do
+			expect(Alimento.method_defined? :get_ground).to eq true
+		end
+	end
 end
 
 
-# Existe un m´etodo para obtener el terreno utilizado.
 # Existe un m´etodo para obtener el alimento formateado.
 # Existe un m´etodo para obtener el valor energ´etico de un alimento.
 # Se calcula correctamente el impacto ambiental diario de un hombre de 20-39 a˜nos.

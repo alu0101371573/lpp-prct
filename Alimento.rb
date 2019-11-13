@@ -14,5 +14,9 @@ class Alimento
 
 	def get_gei
 		@gei
-	end	
+	end
+
+	def get_ground
+		@terreno
+	end
 end
