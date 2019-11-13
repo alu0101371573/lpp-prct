@@ -31,10 +31,16 @@ RSpec.describe Alimento do
 			expect(Alimento.method_defined? :get_name).to eq true
 		end
 	end
+
+	# Existe un m´etodo para obtener las emisiones de gases de efecto invernadero.
+	context "for the class Alimento" do
+		it "should exist a method to get the gei" do
+			expect(Alimento.method_defined? :get_gei).to eq true
+		end
+	end
 end
 
 
-# Existe un m´etodo para obtener las emisiones de gases de efecto invernadero.
 # Existe un m´etodo para obtener el terreno utilizado.
 # Existe un m´etodo para obtener el alimento formateado.
 # Existe un m´etodo para obtener el valor energ´etico de un alimento.

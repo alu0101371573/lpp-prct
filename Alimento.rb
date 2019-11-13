@@ -10,5 +10,9 @@ class Alimento
 
 	def get_name
 		@name
+	end
+
+	def get_gei
+		@gei
 	end	
 end
