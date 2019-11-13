@@ -52,9 +52,15 @@ RSpec.describe Alimento do
 			expect(Alimento.method_defined? :get_info).to eq true
 		end
 	end
+
+	# Existe un m´etodo para obtener el valor energ´etico de un alimento.
+	context "for the class Alimento" do
+		it "should exist a method to get the energia" do
+			expect(Alimento.method_defined? :get_energia).to eq true
+		end
+	end
 end
 
 
-# Existe un m´etodo para obtener el valor energ´etico de un alimento.
 # Se calcula correctamente el impacto ambiental diario de un hombre de 20-39 a˜nos.
 # Se calcula correctamente el impacto ambiental diario de una mujer de 20-39 a˜nos.

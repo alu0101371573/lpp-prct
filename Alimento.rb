@@ -26,4 +26,8 @@ class Alimento
 	def get_info
 		@name + " " + @gei + " " + @terreno + " " + @carb + " " + @protein + " " + @lipidos
 	end
+
+	def get_energia
+		@lipidos * 9 + @protein * 4 + @carb * 4
+	end
 end
