@@ -28,3 +28,52 @@ En el caso de las mujeres la energia a consumir es 2.300 kcal, y 41 gramos de pr
 
 Se calcula el impacto ambiental diario de un alimento en base a la cantidad diaria recomendada.
 El impacto ambiental es igual a la media aritmetica de I huella material, I huella carbono, I huella hidrica y I uso terreno
+
+Entonces tenemos que haber para cada alimento tambien la cuantitad de 
+- material (g), carbono (g), hidrica (L), terreno (m^2)
+
+Por cada uno de los indicatores puede haber un valor
+Bajo, Regular o Alto definito como sigue:
+
+def indicator_material()
+	if @material < 2670
+		return Bajo
+	elsif @material <= 4000
+		return Regular
+	else
+		return Alto
+	end
+end
+
+def indicator_carbono()
+	if @carbono < 800
+		return Bajo
+	elsif @carbono <= 1200
+		return Regular
+	else
+		return Alto
+	end
+end
+
+def indicator_hidrica()
+	if @hidrica < 640
+		return Bajo
+	elsif @hidrica <= 975
+		return Regular
+	else
+		return Alto
+	end
+end
+
+def indicator_terreno()
+	if @terreno < 1.25
+		return Bajo
+	elsif @terreno <= 1.875
+		return Regular
+	else
+		return Alto
+	end
+end
+
+Y Al final la huella_nutricional_ambiental es igual a
+(indicator_material() + indicator_carbono() + indicator_hidrica() + indicator_terreno()) / 4
