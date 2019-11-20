@@ -27,7 +27,24 @@ module Prct06
 	end
 
 	class List
-		attr_reader :head, :tail
+		attr_reader :head, :tail, :length
+
+		def initialize
+			@length = 0
+		end
+
+		def newNode(prevN, valueN, nextN)
+			Struct.new(:prev, :value, :next).new(prevN, valueN, nextN)
+		end
+
+		def push(value)
+			if @length == 0
+				@head = @tail = newNode(nil, value, nil)
+				@length += 1
+			else
+				
+			end
+		end
 	end
 
   end
