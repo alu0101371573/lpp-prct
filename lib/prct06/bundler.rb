@@ -67,6 +67,31 @@ module Prct06
 				@length -= 1
 			end
 		end
+
+		def _get_at_list(current, position)
+			if position == 0
+				return current
+			else
+				return _get_at_list(current.next, position - 1)
+			end
+		end
+
+		def get_at(position)
+			if @head != nil && position >= 0 && position < @head.length
+				# TODO: could be improved by looking backworkds from tail if position is nearear length than 0
+				return _get_at_list(@head, position)
+			else
+				raise RuntimeError.new("The specified position is outside [0; list lenght] or the list has no elements.")
+			end
+		end
+
+		def remove_at(position)
+
+		end
+
+		def insert_at(position)
+
+		end
 	end
 
   end
