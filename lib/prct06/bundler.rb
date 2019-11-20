@@ -41,7 +41,8 @@ module Prct06
 			if @length == 0
 				@head = @tail = newNode(nil, value, nil)
 			else
-				@tail = newNode(@tail, value, nil)
+				@tail.next = newNode(@tail, value, nil)
+				@tail = @tail.next
 
 				if @length == 1
 					@head.next = @tail
@@ -55,12 +56,15 @@ module Prct06
 			if @length == 0
 				raise RuntimeError.new("Cannot pop from empty list.")
 			else
-				@tail = @tail.prev
-				@length -= 1
-
-				if @length == 0
+				if @tail.prev == nil
+					# there is only one element
 					@head = nil
+					@tail = nil
+				else
+					@tail.prev.next = nil
+					@tail = @tail.prev
 				end
+				@length -= 1
 			end
 		end
 	end

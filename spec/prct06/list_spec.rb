@@ -80,5 +80,54 @@ RSpec.describe List do
 		end
 	end
 
+	context "with list of two element" do
+		before(:each) do
+			@l = List.new
+			@l.push 1
+			@l.push 2
+		end
+
+		it "should have a length of 2" do
+			expect(@l.length).to eq 2
+		end
+
+		it "the head should have prev set to null and next set to 2" do
+			expect(@l.head.prev).to be nil
+			expect(@l.head.next.value).to be 2
+		end
+
+		it "should be able to add a node" do
+			@l.push(3)
+
+			# (1    ;    2   ;     3)
+			# (head ;        ; tail)
+			expect(@l.length).to eq 3
+
+			expect(@l.head.value).to eq 1
+			expect(@l.head.next.value).to eq 2
+
+			expect(@l.head.next.prev.value).to eq 1
+			expect(@l.head.next.next.value).to eq 3
+
+			expect(@l.tail.prev.value).to eq 2
+			expect(@l.tail.value).to eq 3
+			expect(@l.tail.next).to eq nil
+		end
+
+		it "should be able to remove the node" do
+			@l.pop
+
+			expect(@l.length).to eq 1
+			expect(@l.head.value).to eq 1
+			expect(@l.tail.value).to eq 1
+			expect(@l.tail.next).to eq nil
+		end
+
+		it "head and tail should be the only node in the list with value 1" do
+			expect(@l.head.value).to eq 1
+			expect(@l.tail.value).to eq 2
+		end
+	end
+
 
 end
