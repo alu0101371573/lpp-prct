@@ -1,3 +1,4 @@
-source 'https://rubygems.org'
+source "https://rubygems.org"
 
-gem 'rspec', '~> 3.0'
+# Specify your gem's dependencies in prct06-bundler.gemspec
+gemspec
