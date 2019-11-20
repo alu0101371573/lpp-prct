@@ -26,5 +26,9 @@ module Prct06
 		end
 	end
 
+	class List
+		attr_reader :head, :tail
+	end
+
   end
 end
