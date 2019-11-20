@@ -40,9 +40,27 @@ module Prct06
 		def push(value)
 			if @length == 0
 				@head = @tail = newNode(nil, value, nil)
-				@length += 1
 			else
-				
+				@tail = newNode(@tail, value, nil)
+
+				if @length == 1
+					@head.next = @tail
+				end
+			end
+
+			@length += 1
+		end
+
+		def pop
+			if @length == 0
+				raise RuntimeError.new("Cannot pop from empty list.")
+			else
+				@tail = @tail.prev
+				@length -= 1
+
+				if @length == 0
+					@head = nil
+				end
 			end
 		end
 	end
