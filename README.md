@@ -1,11 +1,26 @@
 Nombre: Pier Paolo Tarasco
 Asignatura: Lenguajes y Paradigmas de programacion
-Fecha: 14 de noviembre de 2019
-Pratica 6
+Fecha: 21 de noviembre de 2019
+Pratica 7
 
 
-Para installar las dependencies ejecutar este comando:
-$ bundle install
+## Installation
+
+Add this line to your application's Gemfile:
+
+```ruby
+gem 'prct06-bundler'
+```
+
+And then execute:
+
+    $ bundle
+
+Or install it yourself as:
+
+    $ gem install prct06-bundler
+
+## Usage
 
 Por cada uno Alimento tenemos:
 1. un nombre
@@ -32,48 +47,12 @@ El impacto ambiental es igual a la media aritmetica de I huella material, I huel
 Entonces tenemos que haber para cada alimento tambien la cuantitad de 
 - material (g), carbono (g), hidrica (L), terreno (m^2)
 
-Por cada uno de los indicatores puede haber un valor
-Bajo, Regular o Alto definito como sigue:
+Se calcula los differentes impacto environmental para comer 5 differentes dietas con un rapporto differentes
+de carbohydrates, lipidos y proteınas.
+Se ha buscado que el impacto mayor es cuando se come mas carne que comida "naturales" como nuez o verdura. Entonces una dieta espanola es buena porque tiene solo un 20% de proteinas y esto permite de comer meno carne que otra dietas.
 
-def indicator_material()
-	if @material < 2670
-		return Bajo
-	elsif @material <= 4000
-		return Regular
-	else
-		return Alto
-	end
-end
+## Development
 
-def indicator_carbono()
-	if @carbono < 800
-		return Bajo
-	elsif @carbono <= 1200
-		return Regular
-	else
-		return Alto
-	end
-end
+After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
 
-def indicator_hidrica()
-	if @hidrica < 640
-		return Bajo
-	elsif @hidrica <= 975
-		return Regular
-	else
-		return Alto
-	end
-end
-
-def indicator_terreno()
-	if @terreno < 1.25
-		return Bajo
-	elsif @terreno <= 1.875
-		return Regular
-	else
-		return Alto
-	end
-end
-
-Y Al final la huella_nutricional_ambiental es igual a
-(indicator_material() + indicator_carbono() + indicator_hidrica() + indicator_terreno()) / 4
+To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
