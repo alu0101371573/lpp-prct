@@ -101,6 +101,213 @@ RSpec.describe Alimento do
 		end
 	end
 
+	context "testing different diets" do
+
+		it "Spanish Diet: should contains 40\% carbs, 20\% proteins and 40\% fat" do
+			@comidas = List.new
+
+			@comidas.push(Alimento.new("Pollo", 3, 5.7, 7.1, 0.0, 20.6, 5.6))
+			@comidas.push(Alimento.new("Chocolate", 3, 2.3, 3.4, 47.0, 5.3, 30.0))
+			@comidas.push(Alimento.new("Lentejas", 2, 0.4, 3.4, 52.0, 23.5, 0.4))
+			@comidas.push(Alimento.new("Cerdo", 2, 7.6, 11.0, 0.0, 21.5, 6.3))
+
+			dailyGei = 0.0
+			dailyCarbsEnergy = 0.0
+			dailyProteinsEnergy = 0.0
+			dailyLipidsEnergy = 0.0
+			totalDailyEnergy = 0.0
+			terreno = 0.0
+
+			comida = @comidas.head
+			while comida != nil
+				dailyGei += comida.value.gei
+				dailyCarbsEnergy += comida.value.get_energia_carbs
+				dailyProteinsEnergy += comida.value.get_energia_proteins
+				dailyLipidsEnergy += comida.value.get_energia_lipidos
+				totalDailyEnergy += comida.value.get_energia
+				terreno += comida.value.terreno
+
+				comida = comida.next
+			end
+
+			carbsPercent = dailyCarbsEnergy * 100 / totalDailyEnergy
+			proteinsPercent = dailyProteinsEnergy * 100 / totalDailyEnergy
+			lipidsPercent = dailyLipidsEnergy * 100 / totalDailyEnergy
+
+			print "\tCarbs = ", carbsPercent.round(2), "\%; Proteins = ", proteinsPercent.round(2), "\%; Fat = ", lipidsPercent.round(2), "\%\n"
+
+			expect(totalDailyEnergy).to be >= 2500
+			expect(totalDailyEnergy).to be <= 3000
+			puts "\tDaily GEI = " + dailyGei.round(2).to_s
+			puts "\tYearly GEI = " + (dailyGei * 365).round(2).to_s
+			puts "\tTerreno = " + terreno.round(2).to_s
+		end
+
+		it "Vasca Diet: should contains 60\% carbs, 15\% proteins and 25\% fat" do
+			@comidas = List.new
+
+			@comidas.push(Alimento.new("Pollo", 2, 5.7, 7.1, 0.0, 20.6, 5.6))
+			@comidas.push(Alimento.new("Chocolate", 2, 2.3, 3.4, 47.0, 5.3, 30.0))
+			@comidas.push(Alimento.new("Lentejas", 4, 0.4, 3.4, 52.0, 23.5, 0.4))
+			@comidas.push(Alimento.new("Cerdo", 2, 7.6, 11.0, 0.0, 21.5, 6.3))
+			@comidas.push(Alimento.new("Cerveza", 10, 0.24, 0.22, 3.6, 0.5, 0.0))
+
+			dailyGei = 0.0
+			dailyCarbsEnergy = 0.0
+			dailyProteinsEnergy = 0.0
+			dailyLipidsEnergy = 0.0
+			totalDailyEnergy = 0.0
+			terreno = 0.0
+
+			comida = @comidas.head
+			while comida != nil
+				dailyGei += comida.value.gei
+				dailyCarbsEnergy += comida.value.get_energia_carbs
+				dailyProteinsEnergy += comida.value.get_energia_proteins
+				dailyLipidsEnergy += comida.value.get_energia_lipidos
+				totalDailyEnergy += comida.value.get_energia
+				terreno += comida.value.terreno
+
+				comida = comida.next
+			end
+
+			carbsPercent = dailyCarbsEnergy * 100 / totalDailyEnergy
+			proteinsPercent = dailyProteinsEnergy * 100 / totalDailyEnergy
+			lipidsPercent = dailyLipidsEnergy * 100 / totalDailyEnergy
+
+			print "\tCarbs = ", carbsPercent.round(2), "\%; Proteins = ", proteinsPercent.round(2), "\%; Fat = ", lipidsPercent.round(2), "\%\n"
+
+			expect(totalDailyEnergy).to be >= 2500
+			expect(totalDailyEnergy).to be <= 3000
+			puts "\tDaily GEI = " + dailyGei.round(2).to_s
+			puts "\tYearly GEI = " + (dailyGei * 365).round(2).to_s
+			puts "\tTerreno = " + terreno.round(2).to_s
+		end
+
+
+		it "Vegetarian Spanish Diet: should contains 40\% carbs, 20\% proteins and 40\% fat" do
+			@comidas = List.new
+
+			@comidas.push(Alimento.new("Chocolate", 3, 2.3, 3.4, 47.0, 5.3, 30.0))
+			@comidas.push(Alimento.new("Lentejas", 2, 0.4, 3.4, 52.0, 23.5, 0.4))
+
+			@comidas.push(Alimento.new("Leche", 5, 3.2, 8.9, 4.8, 3.3, 3.2))
+
+			@comidas.push(Alimento.new("Huevos", 2, 4.2, 5.7, 1.1, 13.0, 4.2))
+
+			dailyGei = 0.0
+			dailyCarbsEnergy = 0.0
+			dailyProteinsEnergy = 0.0
+			dailyLipidsEnergy = 0.0
+			totalDailyEnergy = 0.0
+			terreno = 0.0
+
+			comida = @comidas.head
+			while comida != nil
+				dailyGei += comida.value.gei
+				dailyCarbsEnergy += comida.value.get_energia_carbs
+				dailyProteinsEnergy += comida.value.get_energia_proteins
+				dailyLipidsEnergy += comida.value.get_energia_lipidos
+				totalDailyEnergy += comida.value.get_energia
+				terreno += comida.value.terreno
+
+				comida = comida.next
+			end
+
+			carbsPercent = dailyCarbsEnergy * 100 / totalDailyEnergy
+			proteinsPercent = dailyProteinsEnergy * 100 / totalDailyEnergy
+			lipidsPercent = dailyLipidsEnergy * 100 / totalDailyEnergy
+
+			print "\tCarbs = ", carbsPercent.round(2), "\%; Proteins = ", proteinsPercent.round(2), "\%; Fat = ", lipidsPercent.round(2), "\%\n"
+
+			expect(totalDailyEnergy).to be >= 2500
+			expect(totalDailyEnergy).to be <= 3000
+			puts "\tDaily GEI = " + dailyGei.round(2).to_s
+			puts "\tYearly GEI = " + (dailyGei * 365).round(2).to_s
+			puts "\tTerreno = " + terreno.round(2).to_s
+		end
+
+		it "Vegan Spanish Diet: should contains 40\% carbs, 20\% proteins and 40\% fat" do
+			@comidas = List.new
+
+			
+			@comidas.push(Alimento.new("Lentejas", 4, 0.4, 3.4, 52.0, 23.5, 0.4))
+			@comidas.push(Alimento.new("Tofu", 10, 2.0, 2.2, 1.9, 8.0, 2.0))
+			@comidas.push(Alimento.new("Nuez", 5, 0.3, 7.9, 21.0, 20.0, 0.3))
+
+			dailyGei = 0.0
+			dailyCarbsEnergy = 0.0
+			dailyProteinsEnergy = 0.0
+			dailyLipidsEnergy = 0.0
+			totalDailyEnergy = 0.0
+			terreno = 0.0
+
+			comida = @comidas.head
+			while comida != nil
+				dailyGei += comida.value.gei
+				dailyCarbsEnergy += comida.value.get_energia_carbs
+				dailyProteinsEnergy += comida.value.get_energia_proteins
+				dailyLipidsEnergy += comida.value.get_energia_lipidos
+				totalDailyEnergy += comida.value.get_energia
+				terreno += comida.value.terreno
+
+				comida = comida.next
+			end
+
+			carbsPercent = dailyCarbsEnergy * 100 / totalDailyEnergy
+			proteinsPercent = dailyProteinsEnergy * 100 / totalDailyEnergy
+			lipidsPercent = dailyLipidsEnergy * 100 / totalDailyEnergy
+
+			print "\tCarbs = ", carbsPercent.round(2), "\%; Proteins = ", proteinsPercent.round(2), "\%; Fat = ", lipidsPercent.round(2), "\%\n"
+
+			expect(totalDailyEnergy).to be >= 2500
+			expect(totalDailyEnergy).to be <= 3000
+			puts "\tDaily GEI = " + dailyGei.round(2).to_s
+			puts "\tYearly GEI = " + (dailyGei * 365).round(2).to_s
+			puts "\tTerreno = " + terreno.round(2).to_s
+		end
+
+		it "locura por la carne Diet: 50\% meat, should contains 40\% carbs, 20\% proteins and 40\% fat" do
+			@comidas = List.new
+
+			@comidas.push(Alimento.new("Carne de vaca", 5, 50.0, 164.0, 0.0, 21.1, 3.1))
+			@comidas.push(Alimento.new("Chocolate", 3, 2.3, 3.4, 47.0, 5.3, 30.0))
+			@comidas.push(Alimento.new("Lentejas", 2, 0.4, 3.4, 52.0, 23.5, 0.4))
+			@comidas.push(Alimento.new("Cerdo", 2, 7.6, 11.0, 0.0, 21.5, 6.3))
+
+			dailyGei = 0.0
+			dailyCarbsEnergy = 0.0
+			dailyProteinsEnergy = 0.0
+			dailyLipidsEnergy = 0.0
+			totalDailyEnergy = 0.0
+			terreno = 0.0
+
+			comida = @comidas.head
+			while comida != nil
+				dailyGei += comida.value.gei
+				dailyCarbsEnergy += comida.value.get_energia_carbs
+				dailyProteinsEnergy += comida.value.get_energia_proteins
+				dailyLipidsEnergy += comida.value.get_energia_lipidos
+				totalDailyEnergy += comida.value.get_energia
+				terreno += comida.value.terreno
+
+				comida = comida.next
+			end
+
+			carbsPercent = dailyCarbsEnergy * 100 / totalDailyEnergy
+			proteinsPercent = dailyProteinsEnergy * 100 / totalDailyEnergy
+			lipidsPercent = dailyLipidsEnergy * 100 / totalDailyEnergy
+
+			print "\tCarbs = ", carbsPercent.round(2), "\%; Proteins = ", proteinsPercent.round(2), "\%; Fat = ", lipidsPercent.round(2), "\%\n"
+
+			expect(totalDailyEnergy).to be >= 2500
+			expect(totalDailyEnergy).to be <= 3000
+			puts "\tDaily GEI = " + dailyGei.round(2).to_s
+			puts "\tYearly GEI = " + (dailyGei * 365).round(2).to_s
+			puts "\tTerreno = " + terreno.round(2).to_s
+		end
+	end
+
 end
 
 
