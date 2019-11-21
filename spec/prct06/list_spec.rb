@@ -27,6 +27,12 @@ RSpec.describe List do
 			expect(@l.length).to eq 1
 		end
 
+		it "should be able to add a node using insert_at" do
+			@l.insert_at(0, 1)
+
+			expect(@l.length).to eq 1
+		end
+
 		it "head and tail should be nil" do
 			expect(@l.head == nil).to eq true
 			expect(@l.tail == nil).to eq true
@@ -34,6 +40,10 @@ RSpec.describe List do
 
 		it "should raise an error when trying to pop" do
 			expect { @l.pop }.to raise_error(RuntimeError)
+		end
+
+		it "should raise an error when trying to remove_at" do
+			expect { @l.remove_at(1) }.to raise_error(RuntimeError)
 		end
 	end
 
@@ -56,8 +66,38 @@ RSpec.describe List do
 			expect(@l.head.next).to be nil
 		end
 
+
+		it "should be able to remove the node with remove_at" do
+			@l.remove_at(0)
+			expect(@l.length).to eq 0
+			expect(@l.head).to be nil
+			expect(@l.tail).to be nil
+		end
+
+		it "should raise an error when trying to remove_at out of range" do
+			expect { @l.remove_at(1) }.to raise_error(RuntimeError)
+		end
+
 		it "should be able to add a node" do
 			@l.push(2)
+
+			# (1    ;    2)
+			# (head ; tail)
+			expect(@l.length).to eq 2
+
+			expect(@l.head.value).to eq 1
+			expect(@l.head.next.value).to eq 2
+
+			expect(@l.tail.prev.value).to eq 1
+			expect(@l.tail.value).to eq 2
+			expect(@l.tail.next).to eq nil
+
+			expect(@l.head.next).to eq @l.tail
+			expect(@l.tail.prev).to eq @l.head
+		end
+
+		it "should be able to add a node using insert_at" do
+			@l.insert_at(1, 2)
 
 			# (1    ;    2)
 			# (head ; tail)
@@ -127,8 +167,35 @@ RSpec.describe List do
 			expect(@l.tail.next).to eq nil
 		end
 
+		it "should be able to add a node using insert_at" do
+			@l.insert_at(2, 3)
+
+			# (1    ;    2   ;     3)
+			# (head ;        ; tail)
+			expect(@l.length).to eq 3
+
+			expect(@l.head.value).to eq 1
+			expect(@l.head.next.value).to eq 2
+
+			expect(@l.head.next.prev.value).to eq 1
+			expect(@l.head.next.next.value).to eq 3
+
+			expect(@l.tail.prev.value).to eq 2
+			expect(@l.tail.value).to eq 3
+			expect(@l.tail.next).to eq nil
+		end
+
 		it "should be able to remove the node" do
 			@l.pop
+
+			expect(@l.length).to eq 1
+			expect(@l.head.value).to eq 1
+			expect(@l.tail.value).to eq 1
+			expect(@l.tail.next).to eq nil
+		end
+
+		it "should be able to remove the node using remove_at" do
+			@l.remove_at(1)
 
 			expect(@l.length).to eq 1
 			expect(@l.head.value).to eq 1
@@ -184,8 +251,35 @@ RSpec.describe List do
 			expect(@l.tail.next).to eq nil
 		end
 
+		it "should be able to add a node using insert_at" do
+			@l.insert_at(3, 4)
+
+			# (1    ;    2   ;     3;    4)
+			# (head ;        ;      ; tail)
+			expect(@l.length).to eq 4
+
+			expect(@l.head.value).to eq 1
+			expect(@l.head.next.value).to eq 2
+
+			expect(@l.head.next.prev.value).to eq 1
+			expect(@l.head.next.next.value).to eq 3
+
+			expect(@l.tail.prev.value).to eq 3
+			expect(@l.tail.value).to eq 4
+			expect(@l.tail.next).to eq nil
+		end
+
 		it "should be able to remove the node" do
 			@l.pop
+
+			expect(@l.length).to eq 2
+			expect(@l.head.value).to eq 1
+			expect(@l.tail.value).to eq 2
+			expect(@l.tail.next).to eq nil
+		end
+
+		it "should be able to remove the node using remove_at" do
+			@l.remove_at(2)
 
 			expect(@l.length).to eq 2
 			expect(@l.head.value).to eq 1
