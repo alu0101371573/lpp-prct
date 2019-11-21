@@ -46,6 +46,10 @@ El impacto ambiental es igual a la media aritmetica de I huella material, I huel
 Entonces tenemos que haber para cada alimento tambien la cuantitad de 
 - material (g), carbono (g), hidrica (L), terreno (m^2)
 
+Se defin la Clase List y se prueba el impacto environmental de diferentes dieta y se escubri que el impacto mayor
+si tiene cuando se come mucha carne. Entonces la dieta espanola esta bien por su impacto medio porque solo tiene un 20%
+de consumo de proteinas y entonces se habe un minor impacto de dietas que tienen mas % de proteinas. 
+
 ## Development
 
 After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
