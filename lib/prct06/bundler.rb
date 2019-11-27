@@ -5,7 +5,12 @@ module Prct06
 	    class Error < StandardError; end
 	    
 		class Alimento
+			include Comparable
 			attr_reader :name, :gei, :terreno, :proteins
+
+		  	def <=>(other)
+		  	  	self.get_energia <=> other.get_energia
+		  	end
 
 			def initialize(name, porcions, geiPerKg, terreno, carbs, proteins, lipidos)
 				@name = name

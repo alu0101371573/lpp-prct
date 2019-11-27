@@ -48,6 +48,12 @@ RSpec.describe Alimento do
 		it "should exist the amount of ground (in m^2ano)" do
 			expect(@comida.terreno).to eq 164.0
 		end
+
+		it "should be comparable" do
+			expect(@comida == @comida).to eq true
+			@nuez = Alimento.new("Nuez", 1, 0.3, 7.9, 21.0, 20.0, 0.3)
+			expect(@comida == @nuez).to eq false
+		end
 	end
 
 	context "for the class Alimento" do
