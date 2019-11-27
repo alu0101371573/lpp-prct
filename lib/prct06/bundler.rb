@@ -6,7 +6,7 @@ module Prct06
 	    
 		class Alimento
 			include Comparable
-			attr_reader :name, :gei, :terreno, :proteins
+			attr_reader :name, :gei, :terreno, :proteins, :carbs, :lipidos
 
 		  	def <=>(other)
 		  	  	self.get_energia <=> other.get_energia

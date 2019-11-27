@@ -56,6 +56,33 @@ RSpec.describe Alimento do
 		end
 	end
 
+	context "compare two aliments" do
+		before(:each) do
+			@chocolate = Alimento.new("Chocolate", 1, 2.3, 3.4, 47.0, 5.3, 30.0)
+			@salmon = Alimento.new("Salmon", 1, 6.0, 3.7, 0.0, 19.9, 13.6)
+		end
+
+		it "chocolate energy should be greater than salmon" do
+			expect(@chocolate.get_energia > @salmon.get_energia).to eq true
+		end
+
+		it "chocolate geiPerKg should be less than salmon" do
+			expect(@chocolate.gei() < @salmon.gei()).to eq true
+		end
+
+		it "chocolate terreno should be less than or equal to salmon" do
+			expect(@chocolate.terreno() <= @salmon.terreno()).to eq true
+		end
+
+		it "chocolate carbs should not be equal to salmon" do
+			expect(@chocolate.carbs() == @salmon.carbs()).to eq false
+		end
+
+		it "salmon proteins should  be equal or greater than  salmon" do
+			expect(@salmon.proteins() >= @chocolate.proteins()).to eq true
+		end
+	end
+
 	context "for the class Alimento" do
 		it "should exist a method to get the name" do
 			expect(Alimento.method_defined? :name).to eq true
