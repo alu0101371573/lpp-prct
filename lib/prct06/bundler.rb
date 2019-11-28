@@ -5,7 +5,12 @@ module Prct06
 	    class Error < StandardError; end
 	    
 		class Alimento
-			attr_reader :name, :gei, :terreno, :proteins
+			include Comparable
+			attr_reader :name, :gei, :terreno, :proteins, :carbs, :lipidos, :geiPerKg
+
+		  	def <=>(other)
+		  	  	get_energia <=> other.get_energia
+		  	end
 
 			def initialize(name, porcions, geiPerKg, terreno, carbs, proteins, lipidos)
 				@name = name
@@ -15,6 +20,10 @@ module Prct06
 				@carbs = porcions*carbs
 				@proteins = porcions*proteins
 				@lipidos = porcions*lipidos
+			end
+
+			def to_s
+				return @name
 			end
 
 			def get_info
@@ -38,8 +47,193 @@ module Prct06
 			end
 		end
 
+		class Plato
+			attr_reader :plateName, :alimentsList, :gramsList
+
+			def initialize(name, alimentsList, gramsList)
+				@plateName = name
+				@alimentsList = alimentsList
+				@gramsList = gramsList
+			end
+
+			def proteinsPercent()
+				plato = @alimentsList.head
+				grams = @gramsList.head
+				totalEnergy = 0.0
+				totalProteinsEnergy = 0.0
+
+				while plato != nil
+					totalEnergy += (plato.value.get_energia * grams.value) / 100
+					totalProteinsEnergy += (plato.value.get_energia_proteins * grams.value) / 100
+
+					plato = plato.next
+					grams = grams.next
+				end
+
+				return (totalProteinsEnergy * 100) / totalEnergy
+			end
+
+			def carbsPercent()
+				plato = @alimentsList.head
+				grams = @gramsList.head
+				totalEnergy = 0.0
+				totalCarbsEnergy = 0.0
+
+				while plato != nil
+					totalEnergy += (plato.value.get_energia * grams.value) / 100
+					totalCarbsEnergy += (plato.value.get_energia_carbs * grams.value) / 100
+
+					plato = plato.next
+					grams = grams.next
+				end
+
+				return (totalCarbsEnergy * 100) / totalEnergy
+			end
+
+			def lipidsPercent()
+				plato = @alimentsList.head
+				grams = @gramsList.head
+				totalEnergy = 0.0
+				totalLipidsEnergy = 0.0
+
+				while plato != nil
+					totalEnergy += (plato.value.get_energia * grams.value) / 100
+					totalLipidsEnergy += (plato.value.get_energia_lipidos * grams.value) / 100
+
+					plato = plato.next
+					grams = grams.next
+				end
+
+				return (totalLipidsEnergy * 100) / totalEnergy
+			end
+
+			def co2Percent()
+
+			end
+
+			def totalCaloricValue()
+				plato = @alimentsList.head
+				grams = @gramsList.head
+				total = 0.0
+
+				while plato != nil
+					total += (plato.value.get_energia() * grams.value) / 100
+					plato = plato.next
+					grams = grams.next
+				end
+
+				return total
+			end
+
+			def to_s
+
+			end
+		end
+
+		class PlatoExtended < Plato
+			include Comparable
+
+			def <=>(other)
+				totalCaloricValue() <=> other.totalCaloricValue()
+			end
+
+			def totalGei
+				# geiPer1000g = geiPerKg / 1000
+				# geiPerXgrams = (geiPer1000g * Xgrams) / 1000
+
+				plato = alimentsList.head
+				grams = gramsList.head
+
+				totalGetC = 0.0
+
+				while plato != nil
+					geiPer1000g = plato.value.geiPerKg() / 1000
+					geiPerXgrams = (geiPer1000g * grams.value) / 1000
+
+					totalGetC += geiPerXgrams
+
+					plato = plato.next
+					grams = grams.next
+				end
+
+
+
+				return totalGetC
+			end
+
+			def totalTerreno()
+				# terreno = (terreno * grammi) / 100
+
+				plato = alimentsList.head
+				grams = gramsList.head
+
+				totalTerreno = 0.0
+
+				while plato != nil
+					totalTerreno += (plato.value.terreno * grams.value) / 100
+
+					plato = plato.next
+					grams = grams.next
+				end
+
+				return totalTerreno
+			end
+
+			def energyEfficiency()
+				"Carbs " + carbsPercent().round(2).to_s + "%,\nProteins " + proteinsPercent().round(2).to_s + "%\nLipids " + lipidsPercent().round(2).to_s + "%\n"
+			end
+		end
+
 		class List
+			include Enumerable
 			attr_reader :head, :tail, :length
+
+			def <=>(other)
+				if @length < other.length
+					return -1
+				elsif @length > other.length
+					return 1
+				else
+					# Check every element
+					temp1 = @head
+					temp2 = other.head
+
+					while temp1 != nil
+						if (temp1.value <=> temp2.value) != 0
+							return temp1.value <=> temp2.value
+						end
+
+						temp1 = temp1.next
+						temp2 = temp2.next
+					end
+
+					return 0
+				end
+			end
+
+			def to_s
+				'[' << map(&:to_s).join(', ') << ']'
+			end
+
+			def each()
+				if @head
+					yield @head.value
+					@head.next.each if @head.next
+				end
+			end
+
+			# def each(&block)
+			#     block.call(@head.value)
+			#     @tail.each(&block) if @tail
+		 #  	end
+
+			def each(&block)
+				temp = @head
+				while temp != nil
+					block.call(temp.value)
+					temp = temp.next
+				end
+			end
 
 			def initialize
 				@length = 0

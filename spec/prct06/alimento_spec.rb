@@ -30,7 +30,6 @@ include Prct06::Bundler
 
 # nuez = Alimento.new("Nuez", 0.3, 7.9, 21.0, 20.0, 0.3)
 
-
 RSpec.describe Alimento do
 	context "after simple .new" do
 		before(:each) do
@@ -47,6 +46,39 @@ RSpec.describe Alimento do
 
 		it "should exist the amount of ground (in m^2ano)" do
 			expect(@comida.terreno).to eq 164.0
+		end
+
+		it "should be comparable" do
+			expect(@comida == @comida).to eq true
+			@nuez = Alimento.new("Nuez", 1, 0.3, 7.9, 21.0, 20.0, 0.3)
+			expect(@comida == @nuez).to eq false
+		end
+	end
+
+	context "compare two aliments" do
+		before(:each) do
+			@chocolate = Alimento.new("Chocolate", 1, 2.3, 3.4, 47.0, 5.3, 30.0)
+			@salmon = Alimento.new("Salmon", 1, 6.0, 3.7, 0.0, 19.9, 13.6)
+		end
+
+		it "chocolate energy should be greater than salmon" do
+			expect(@chocolate.get_energia > @salmon.get_energia).to eq true
+		end
+
+		it "chocolate geiPerKg should be less than salmon" do
+			expect(@chocolate.gei() < @salmon.gei()).to eq true
+		end
+
+		it "chocolate terreno should be less than or equal to salmon" do
+			expect(@chocolate.terreno() <= @salmon.terreno()).to eq true
+		end
+
+		it "chocolate carbs should not be equal to salmon" do
+			expect(@chocolate.carbs() == @salmon.carbs()).to eq false
+		end
+
+		it "salmon proteins should  be equal or greater than  salmon" do
+			expect(@salmon.proteins() >= @chocolate.proteins()).to eq true
 		end
 	end
 
@@ -98,6 +130,88 @@ RSpec.describe Alimento do
 			expect(pollo.get_energia + chocolate.get_energia + queso.get_energia + carneCordero.get_energia + nuez.get_energia).to be >= 2300
 			expect(pollo.proteins + chocolate.proteins + queso.proteins + carneCordero.proteins + nuez.proteins).to be >= 41
 			expect(pollo.gei + carneCordero.gei + chocolate.gei + queso.gei + nuez.gei).to eq 21.130000000000003
+		end
+	end
+
+	context "with list of aliment" do
+
+		before(:each) do
+			@comidas = List.new
+			@pollo = Alimento.new("Pollo", 5, 5.7, 7.1, 0.0, 20.6, 5.6)
+			@comidas.push(@pollo)
+			@comidas.push(Alimento.new("Chocolate", 10, 2.3, 3.4, 47.0, 5.3, 30.0))
+			@comidas.push(Alimento.new("Lentejas", 1, 0.4, 3.4, 52.0, 23.5, 0.4))
+			@comidas.push(Alimento.new("Cerdo", 3, 7.6, 11.0, 0.0, 21.5, 6.3))
+		end
+
+		it "collect" do
+			puts @comidas.collect { |c| c.name + "!" }
+		end
+
+		it "select" do
+			expect((@comidas.select { |c| c.name == "Pollo" })[0]).to eq @pollo
+		end
+
+		it "max" do
+			expect(@comidas.max.name).to eq "Chocolate"
+		end
+
+		it "min" do
+			expect(@comidas.min.name).to eq "Lentejas"
+		end
+
+		it "sort." do
+			expect(@comidas.sort).to eq [
+				Alimento.new("Lentejas", 1, 0.4, 3.4, 52.0, 23.5, 0.4),
+				Alimento.new("Cerdo", 3, 7.6, 11.0, 0.0, 21.5, 6.3),
+				Alimento.new("Pollo", 5, 5.7, 7.1, 0.0, 20.6, 5.6),
+				Alimento.new("Chocolate", 10, 2.3, 3.4, 47.0, 5.3, 30.0)
+			]
+		end
+
+	end
+
+	context "with a dish (list of aliment)" do
+		before(:each) do
+			@comidas = List.new
+
+			@comidas.push(Alimento.new("Pollo", 1, 5.7, 7.1, 0.0, 20.6, 5.6))
+			@comidas.push(Alimento.new("Chocolate", 1, 2.3, 3.4, 47.0, 5.3, 30.0))
+			@comidas.push(Alimento.new("Lentejas", 1, 0.4, 3.4, 52.0, 23.5, 0.4))
+			@comidas.push(Alimento.new("Cerdo", 1, 7.6, 11.0, 0.0, 21.5, 6.3))
+		
+			@grams = List.new
+
+			@grams.push(300)	
+			@grams.push(300)
+			@grams.push(200)
+			@grams.push(200)
+
+			@plato = Plato.new("Spanish diet", @comidas, @grams)
+		end
+
+		it "should have a name" do
+			expect(@plato.plateName).to eq("Spanish diet")
+		end
+
+		it "should have a list of food" do
+			expect(@plato.alimentsList.class).to eq (List)
+		end
+
+		it "should have a list of grams" do
+			expect(@plato.gramsList.class).to eq (List)
+		end
+
+		it "should have a around 20\% of proteins" do
+			puts @plato.proteinsPercent
+		end
+
+		it "should have a around 40\% of carbs" do
+			puts @plato.carbsPercent
+		end
+
+		it "should have a around 40\% of fat" do
+			puts @plato.lipidsPercent
 		end
 	end
 
@@ -310,4 +424,130 @@ RSpec.describe Alimento do
 
 end
 
+RSpec.describe PlatoExtended do
+	context "with a dish" do
+		before(:each) do
+			@comidas = List.new
 
+			@comidas.push(Alimento.new("Pollo", 1, 5.7, 7.1, 0.0, 20.6, 5.6))
+			@comidas.push(Alimento.new("Chocolate", 1, 2.3, 3.4, 47.0, 5.3, 30.0))
+			@comidas.push(Alimento.new("Lentejas", 1, 0.4, 3.4, 52.0, 23.5, 0.4))
+			@comidas.push(Alimento.new("Cerdo", 1, 7.6, 11.0, 0.0, 21.5, 6.3))
+		
+			@grams = List.new
+
+			@grams.push(300)	
+			@grams.push(300)
+			@grams.push(200)
+			@grams.push(200)
+
+			@plato = PlatoExtended.new("Spanish diet", @comidas, @grams)
+		end
+
+		it "should have PlatoExtended class" do
+			expect(@plato.class == PlatoExtended).to eq true
+		end
+
+		it "should be a subclass of Plato" do
+			expect(@plato.class < Plato).to eq true
+		end
+
+		it "should return total co2" do
+			puts @plato.totalGei()
+		end
+
+		it "should return total ground" do
+			puts @plato.totalTerreno()
+		end
+
+		it "should return energy informations" do
+			puts @plato.energyEfficiency()
+		end
+	end
+
+	context "with two dish (Spanish and Locura)" do
+		before(:each) do
+			@comidas = List.new
+
+			@comidas.push(Alimento.new("Pollo", 1, 5.7, 7.1, 0.0, 20.6, 5.6))
+			@comidas.push(Alimento.new("Chocolate", 1, 2.3, 3.4, 47.0, 5.3, 30.0))
+			@comidas.push(Alimento.new("Lentejas", 1, 0.4, 3.4, 52.0, 23.5, 0.4))
+			@comidas.push(Alimento.new("Cerdo", 1, 7.6, 11.0, 0.0, 21.5, 6.3))
+		
+			@grams = List.new
+
+			@grams.push(300)	
+			@grams.push(300)
+			@grams.push(200)
+			@grams.push(200)
+
+			@plato1 = PlatoExtended.new("Spanish diet", @comidas, @grams)
+		
+
+			@comidas = List.new
+
+			@comidas.push(Alimento.new("Carne de vaca", 1, 50.0, 164.0, 0.0, 21.1, 3.1))
+			@comidas.push(Alimento.new("Chocolate", 1, 2.3, 3.4, 47.0, 5.3, 30.0))
+			@comidas.push(Alimento.new("Lentejas", 1, 0.4, 3.4, 52.0, 23.5, 0.4))
+			@comidas.push(Alimento.new("Cerdo", 1, 7.6, 11.0, 0.0, 21.5, 6.3))
+
+			@grams = List.new
+
+			@grams.push(500)	
+			@grams.push(300)
+			@grams.push(200)
+			@grams.push(200)
+
+			@plato2 = PlatoExtended.new("Locura por la carne diet", @comidas, @grams)
+		end
+
+		it "should be comarable" do
+			expect(@plato1 < @plato2).to eq true
+		end
+	end
+
+	context "with two dish (Vasca and Vegetariana)" do
+		before(:each) do
+			@comidas = List.new
+
+			@comidas.push(Alimento.new("Pollo", 1, 5.7, 7.1, 0.0, 20.6, 5.6))
+			@comidas.push(Alimento.new("Chocolate", 1, 2.3, 3.4, 47.0, 5.3, 30.0))
+			@comidas.push(Alimento.new("Lentejas", 1, 0.4, 3.4, 52.0, 23.5, 0.4))
+			@comidas.push(Alimento.new("Cerdo", 1, 7.6, 11.0, 0.0, 21.5, 6.3))
+			@comidas.push(Alimento.new("Cerveza", 1, 0.24, 0.22, 3.6, 0.5, 0.0))
+		
+			@grams = List.new
+
+			@grams.push(200)	
+			@grams.push(200)
+			@grams.push(400)
+			@grams.push(200)
+			@grams.push(1000)
+
+			@plato1 = PlatoExtended.new("Vasca diet Dish", @comidas, @grams)
+		
+
+			@comidas = List.new
+
+			@comidas.push(Alimento.new("Chocolate", 1, 2.3, 3.4, 47.0, 5.3, 30.0))
+			@comidas.push(Alimento.new("Lentejas", 1, 0.4, 3.4, 52.0, 23.5, 0.4))
+
+			@comidas.push(Alimento.new("Leche", 1, 3.2, 8.9, 4.8, 3.3, 3.2))
+
+			@comidas.push(Alimento.new("Huevos", 1, 4.2, 5.7, 1.1, 13.0, 4.2))
+
+			@grams = List.new
+
+			@grams.push(300)	
+			@grams.push(200)
+			@grams.push(500)
+			@grams.push(200)
+
+			@plato2 = PlatoExtended.new("Locura por la carne diet", @comidas, @grams)
+		end
+
+		it "should be comarable" do
+			expect(@plato1 > @plato2).to eq true
+		end
+	end
+end
