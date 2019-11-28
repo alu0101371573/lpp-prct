@@ -135,6 +135,26 @@ RSpec.describe List do
 			@l.push 2
 		end
 
+		it "collect" do
+			puts @l.collect { |c| c + 100 }
+		end
+
+		it "select" do
+			expect((@l.select { |c| c == 2 })[0]).to eq 2
+		end
+
+		it "max" do
+			expect(@l.max).to eq 2
+		end
+
+		it "min" do
+			expect(@l.min).to eq 1
+		end
+
+		it "sort." do
+			expect(@l.sort).to eq [1, 2]
+		end
+
 		it "should have a length of 2" do
 			expect(@l.length).to eq 2
 		end
