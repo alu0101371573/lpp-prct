@@ -6,7 +6,7 @@ module Prct06
 	    
 		class Alimento
 			include Comparable
-			attr_reader :name, :gei, :terreno, :proteins, :carbs, :lipidos
+			attr_reader :name, :gei, :terreno, :proteins, :carbs, :lipidos, :geiPerKg
 
 		  	def <=>(other)
 		  	  	self.get_energia <=> other.get_energia
@@ -140,19 +140,19 @@ module Prct06
 				totalGetC = 0.0
 
 				while plato != nil
-					geiPer1000g = plato.value.geiPerKg / 1000
+					geiPer1000g = plato.value.geiPerKg() / 1000
 					geiPerXgrams = (geiPer1000g * grams.value) / 1000
 
 					totalGetC += geiPerXgrams
 
 					plato = plato.next
-					grams = grams.mext
+					grams = grams.next
 				end
 
 				return totalGetC
 			end
 
-			def terreno
+			def totalTerreno()
 				# terreno = (terreno * grammi) / 100
 
 				plato = alimentsList.head
@@ -164,14 +164,14 @@ module Prct06
 					totalTerreno += (plato.value.terreno * grams.value) / 100
 
 					plato = plato.next
-					grams = grams.mext
+					grams = grams.next
 				end
 
 				return totalTerreno
 			end
 
 			def energyEfficiency()
-				"Carbs " + carbsPercent() + "%,\nProteins " + proteinsPercent() + "%\nLipids " + lipidsPercent() + "%\n"
+				"Carbs " + carbsPercent().round(2).to_s + "%,\nProteins " + proteinsPercent().round(2).to_s + "%\nLipids " + lipidsPercent().round(2).to_s + "%\n"
 			end
 		end
 

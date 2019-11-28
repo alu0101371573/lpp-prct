@@ -30,7 +30,6 @@ include Prct06::Bundler
 
 # nuez = Alimento.new("Nuez", 0.3, 7.9, 21.0, 20.0, 0.3)
 
-
 RSpec.describe Alimento do
 	context "after simple .new" do
 		before(:each) do
@@ -168,7 +167,7 @@ RSpec.describe Alimento do
 
 	end
 
-	context "with a dish (list of aliment" do
+	context "with a dish (list of aliment)" do
 		before(:each) do
 			@comidas = List.new
 
@@ -421,4 +420,44 @@ RSpec.describe Alimento do
 
 end
 
+RSpec.describe PlatoExtended do
+	context "with a dish" do
+		before(:each) do
+			@comidas = List.new
 
+			@comidas.push(Alimento.new("Pollo", 1, 5.7, 7.1, 0.0, 20.6, 5.6))
+			@comidas.push(Alimento.new("Chocolate", 1, 2.3, 3.4, 47.0, 5.3, 30.0))
+			@comidas.push(Alimento.new("Lentejas", 1, 0.4, 3.4, 52.0, 23.5, 0.4))
+			@comidas.push(Alimento.new("Cerdo", 1, 7.6, 11.0, 0.0, 21.5, 6.3))
+		
+			@grams = List.new
+
+			@grams.push(300)	
+			@grams.push(300)
+			@grams.push(200)
+			@grams.push(200)
+
+			@plato = PlatoExtended.new("Spanish diet", @comidas, @grams)
+		end
+
+		it "should have PlatoExtended class" do
+			expect(@plato.class == PlatoExtended).to eq true
+		end
+
+		it "should be a subclass of Plato" do
+			expect(@plato.class < Plato).to eq true
+		end
+
+		it "should return total co2" do
+			puts @plato.totalGei()
+		end
+
+		it "should return total ground" do
+			puts @plato.totalTerreno()
+		end
+
+		it "should return energy informations" do
+			puts @plato.energyEfficiency()
+		end
+	end
+end
