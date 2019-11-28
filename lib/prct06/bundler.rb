@@ -48,10 +48,10 @@ module Prct06
 		end
 
 		class Plato
-			attr_reader :name, alimentsList, gramsList
+			attr_reader :plateName, :alimentsList, :gramsList
 
 			def initialize(name, alimentsList, gramsList)
-				@name = name
+				@plateName = name
 				@alimentsList = alimentsList
 				@gramsList = gramsList
 			end
@@ -67,7 +67,7 @@ module Prct06
 					totalProteinsEnergy += (plato.value.get_energia_proteins * grams.value) / 100
 
 					plato = plato.next
-					grams = geams.next
+					grams = grams.next
 				end
 
 				return (totalProteinsEnergy * 100) / totalEnergy
@@ -84,7 +84,7 @@ module Prct06
 					totalCarbsEnergy += (plato.value.get_energia_carbs * grams.value) / 100
 
 					plato = plato.next
-					grams = geams.next
+					grams = grams.next
 				end
 
 				return (totalCarbsEnergy * 100) / totalEnergy
@@ -101,10 +101,14 @@ module Prct06
 					totalLipidsEnergy += (plato.value.get_energia_lipidos * grams.value) / 100
 
 					plato = plato.next
-					grams = geams.next
+					grams = grams.next
 				end
 
 				return (totalLipidsEnergy * 100) / totalEnergy
+			end
+
+			def co2Percent()
+				
 			end
 
 			def totalCaloricValue
