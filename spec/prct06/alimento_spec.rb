@@ -137,32 +137,36 @@ RSpec.describe Alimento do
 
 		before(:each) do
 			@comidas = List.new
-
-			@comidas.push(Alimento.new("Pollo", 3, 5.7, 7.1, 0.0, 20.6, 5.6))
-			@comidas.push(Alimento.new("Chocolate", 3, 2.3, 3.4, 47.0, 5.3, 30.0))
-			@comidas.push(Alimento.new("Lentejas", 2, 0.4, 3.4, 52.0, 23.5, 0.4))
-			@comidas.push(Alimento.new("Cerdo", 2, 7.6, 11.0, 0.0, 21.5, 6.3))
+			@pollo = Alimento.new("Pollo", 5, 5.7, 7.1, 0.0, 20.6, 5.6)
+			@comidas.push(@pollo)
+			@comidas.push(Alimento.new("Chocolate", 10, 2.3, 3.4, 47.0, 5.3, 30.0))
+			@comidas.push(Alimento.new("Lentejas", 1, 0.4, 3.4, 52.0, 23.5, 0.4))
+			@comidas.push(Alimento.new("Cerdo", 3, 7.6, 11.0, 0.0, 21.5, 6.3))
 		end
 
 		it "collect" do
-			#puts "ciao"
-			#puts @comidas.collect {|x| x.value == @comidas.head.value}
+			puts @comidas.collect { |c| c.name + "!" }
 		end
 
 		it "select" do
-
+			expect((@comidas.select { |c| c.name == "Pollo" })[0]).to eq @pollo
 		end
 
 		it "max" do
-
+			expect(@comidas.max.name).to eq "Chocolate"
 		end
 
 		it "min" do
-
+			expect(@comidas.min.name).to eq "Lentejas"
 		end
 
 		it "sort." do
-
+			expect(@comidas.sort).to eq [
+				Alimento.new("Lentejas", 1, 0.4, 3.4, 52.0, 23.5, 0.4),
+				Alimento.new("Cerdo", 3, 7.6, 11.0, 0.0, 21.5, 6.3),
+				Alimento.new("Pollo", 5, 5.7, 7.1, 0.0, 20.6, 5.6),
+				Alimento.new("Chocolate", 10, 2.3, 3.4, 47.0, 5.3, 30.0)
+			]
 		end
 
 	end
@@ -510,36 +514,40 @@ RSpec.describe PlatoExtended do
 			@comidas.push(Alimento.new("Chocolate", 1, 2.3, 3.4, 47.0, 5.3, 30.0))
 			@comidas.push(Alimento.new("Lentejas", 1, 0.4, 3.4, 52.0, 23.5, 0.4))
 			@comidas.push(Alimento.new("Cerdo", 1, 7.6, 11.0, 0.0, 21.5, 6.3))
+			@comidas.push(Alimento.new("Cerveza", 1, 0.24, 0.22, 3.6, 0.5, 0.0))
 		
 			@grams = List.new
 
-			@grams.push(300)	
-			@grams.push(300)
+			@grams.push(200)	
 			@grams.push(200)
+			@grams.push(400)
 			@grams.push(200)
+			@grams.push(1000)
 
-			@plato1 = PlatoExtended.new("Spanish diet", @comidas, @grams)
+			@plato1 = PlatoExtended.new("Vasca diet Dish", @comidas, @grams)
 		
 
 			@comidas = List.new
 
-			@comidas.push(Alimento.new("Carne de vaca", 1, 50.0, 164.0, 0.0, 21.1, 3.1))
 			@comidas.push(Alimento.new("Chocolate", 1, 2.3, 3.4, 47.0, 5.3, 30.0))
 			@comidas.push(Alimento.new("Lentejas", 1, 0.4, 3.4, 52.0, 23.5, 0.4))
-			@comidas.push(Alimento.new("Cerdo", 1, 7.6, 11.0, 0.0, 21.5, 6.3))
+
+			@comidas.push(Alimento.new("Leche", 1, 3.2, 8.9, 4.8, 3.3, 3.2))
+
+			@comidas.push(Alimento.new("Huevos", 1, 4.2, 5.7, 1.1, 13.0, 4.2))
 
 			@grams = List.new
 
-			@grams.push(500)	
-			@grams.push(300)
+			@grams.push(300)	
 			@grams.push(200)
+			@grams.push(500)
 			@grams.push(200)
 
 			@plato2 = PlatoExtended.new("Locura por la carne diet", @comidas, @grams)
 		end
 
 		it "should be comarable" do
-			expect(@plato1 < @plato2).to eq true
+			expect(@plato1 > @plato2).to eq true
 		end
 	end
 end

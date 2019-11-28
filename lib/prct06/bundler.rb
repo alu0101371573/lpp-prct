@@ -9,7 +9,7 @@ module Prct06
 			attr_reader :name, :gei, :terreno, :proteins, :carbs, :lipidos, :geiPerKg
 
 		  	def <=>(other)
-		  	  	self.get_energia <=> other.get_energia
+		  	  	get_energia <=> other.get_energia
 		  	end
 
 			def initialize(name, porcions, geiPerKg, terreno, carbs, proteins, lipidos)
@@ -156,7 +156,7 @@ module Prct06
 					grams = grams.next
 				end
 
-				
+
 
 				return totalGetC
 			end
@@ -215,24 +215,25 @@ module Prct06
 				'[' << map(&:to_s).join(', ') << ']'
 			end
 
-			def each
+			def each()
 				if @head
-					yield @head
+					yield @head.value
 					@head.next.each if @head.next
 				end
 			end
 
-			def each(&block)
-			    block.call(@head)
-			    @tail.each(&block) if @tail
-		  	end
+			# def each(&block)
+			#     block.call(@head.value)
+			#     @tail.each(&block) if @tail
+		 #  	end
 
-			#def each(&block)
-			#	if @head
-			#		block.call(@head)
-			#		@head.next.each(block) if @head.next
-			#	end
-			#end
+			def each(&block)
+				temp = @head
+				while temp != nil
+					block.call(temp.value)
+					temp = temp.next
+				end
+			end
 
 			def initialize
 				@length = 0
