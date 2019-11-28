@@ -134,6 +134,40 @@ RSpec.describe Alimento do
 		end
 	end
 
+	context "with list of aliment" do
+
+		before(:each) do
+			@comidas = List.new
+
+			@comidas.push(Alimento.new("Pollo", 3, 5.7, 7.1, 0.0, 20.6, 5.6))
+			@comidas.push(Alimento.new("Chocolate", 3, 2.3, 3.4, 47.0, 5.3, 30.0))
+			@comidas.push(Alimento.new("Lentejas", 2, 0.4, 3.4, 52.0, 23.5, 0.4))
+			@comidas.push(Alimento.new("Cerdo", 2, 7.6, 11.0, 0.0, 21.5, 6.3))
+		end
+
+		it "collect" do
+			#puts "ciao"
+			#puts @comidas.collect {|x| x.value == @comidas.head.value}
+		end
+
+		it "select" do
+
+		end
+
+		it "max" do
+
+		end
+
+		it "min" do
+
+		end
+
+		it "sort." do
+
+		end
+
+	end
+
 	context "testing different diets" do
 
 		it "Spanish Diet: should contains 40\% carbs, 20\% proteins and 40\% fat" do

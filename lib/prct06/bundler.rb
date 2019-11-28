@@ -22,6 +22,10 @@ module Prct06
 				@lipidos = porcions*lipidos
 			end
 
+			def to_s
+				return @name
+			end
+
 			def get_info
 				@name + "\ngei: " + @gei + " terreno: " + @terreno + " carbs: " + @carbs + "g  proteins: " + @proteins + "g  Lipidos: " + @lipidos + "g"
 			end
@@ -43,8 +47,132 @@ module Prct06
 			end
 		end
 
+		class Plato
+			attr_reader :name, alimentsList, gramsList
+
+			def initialize(name, alimentsList, gramsList)
+				@name = name
+				@alimentsList = alimentsList
+				@gramsList = gramsList
+			end
+
+			def proteinsPercent()
+				plato = @alimentsList.head
+				grams = @gramsList.head
+				totalEnergy = 0.0
+				totalProteinsEnergy = 0.0
+
+				while plato != nil
+					totalEnergy += (plato.value.get_energia * grams.value) / 100
+					totalProteinsEnergy += (plato.value.get_energia_proteins * grams.value) / 100
+
+					plato = plato.next
+					grams = geams.next
+				end
+
+				return (totalProteinsEnergy * 100) / totalEnergy
+			end
+
+			def carbsPercent()
+				plato = @alimentsList.head
+				grams = @gramsList.head
+				totalEnergy = 0.0
+				totalCarbsEnergy = 0.0
+
+				while plato != nil
+					totalEnergy += (plato.value.get_energia * grams.value) / 100
+					totalCarbsEnergy += (plato.value.get_energia_carbs * grams.value) / 100
+
+					plato = plato.next
+					grams = geams.next
+				end
+
+				return (totalCarbsEnergy * 100) / totalEnergy
+			end
+
+			def lipidsPercent()
+				plato = @alimentsList.head
+				grams = @gramsList.head
+				totalEnergy = 0.0
+				totalLipidsEnergy = 0.0
+
+				while plato != nil
+					totalEnergy += (plato.value.get_energia * grams.value) / 100
+					totalLipidsEnergy += (plato.value.get_energia_lipidos * grams.value) / 100
+
+					plato = plato.next
+					grams = geams.next
+				end
+
+				return (totalLipidsEnergy * 100) / totalEnergy
+			end
+
+			def totalCaloricValue
+				plato = @alimentsList.head
+				total = 0.0
+
+				while plato != nil
+					total += plato.value.get_energia
+					plato = plato.next
+				end
+
+				return total
+			end
+
+			def to_s
+
+			end
+		end
+
 		class List
+			include Enumerable
 			attr_reader :head, :tail, :length
+
+			def <=>(other)
+				if @length < other.length
+					return -1
+				elsif @length > other.length
+					return 1
+				else
+					# Check every element
+					temp1 = @head
+					temp2 = other.head
+
+					while temp1 != nil
+						if (temp1.value <=> temp2.value) != 0
+							return temp1.value <=> temp2.value
+						end
+
+						temp1 = temp1.next
+						temp2 = temp2.next
+					end
+
+					return 0
+				end
+			end
+
+			def to_s
+				'[' << map(&:to_s).join(', ') << ']'
+			end
+
+			def each
+				if @head
+					yield @head
+					@head.next.each if @head.next
+				end
+			end
+
+			def each(&block)
+			    block.call(@head)
+			    @tail.each(&block) if @tail
+		  	end
+
+			#def each(&block)
+			#	if @head
+			#		block.call(@head)
+			#		@head.next.each(block) if @head.next
+			#	end
+			#end
 
 			def initialize
 				@length = 0
