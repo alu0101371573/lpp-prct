@@ -108,7 +108,7 @@ module Prct06
 			end
 
 			def co2Percent()
-				
+
 			end
 
 			def totalCaloricValue
@@ -125,6 +125,53 @@ module Prct06
 
 			def to_s
 
+			end
+		end
+
+		class PlatoExtended < Plato
+
+			def totalGei
+				# geiPer1000g = geiPerKg / 1000
+				# geiPerXgrams = (geiPer1000g * Xgrams) / 1000
+
+				plato = alimentsList.head
+				grams = gramsList.head
+
+				totalGetC = 0.0
+
+				while plato != nil
+					geiPer1000g = plato.value.geiPerKg / 1000
+					geiPerXgrams = (geiPer1000g * grams.value) / 1000
+
+					totalGetC += geiPerXgrams
+
+					plato = plato.next
+					grams = grams.mext
+				end
+
+				return totalGetC
+			end
+
+			def terreno
+				# terreno = (terreno * grammi) / 100
+
+				plato = alimentsList.head
+				grams = gramsList.head
+
+				totalTerreno = 0.0
+
+				while plato != nil
+					totalTerreno += (plato.value.terreno * grams.value) / 100
+
+					plato = plato.next
+					grams = grams.mext
+				end
+
+				return totalTerreno
+			end
+
+			def energyEfficiency()
+				"Carbs " + carbsPercent() + "%,\nProteins " + proteinsPercent() + "%\nLipids " + lipidsPercent() + "%\n"
 			end
 		end
 
