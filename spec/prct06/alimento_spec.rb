@@ -460,4 +460,86 @@ RSpec.describe PlatoExtended do
 			puts @plato.energyEfficiency()
 		end
 	end
+
+	context "with two dish (Spanish and Locura)" do
+		before(:each) do
+			@comidas = List.new
+
+			@comidas.push(Alimento.new("Pollo", 1, 5.7, 7.1, 0.0, 20.6, 5.6))
+			@comidas.push(Alimento.new("Chocolate", 1, 2.3, 3.4, 47.0, 5.3, 30.0))
+			@comidas.push(Alimento.new("Lentejas", 1, 0.4, 3.4, 52.0, 23.5, 0.4))
+			@comidas.push(Alimento.new("Cerdo", 1, 7.6, 11.0, 0.0, 21.5, 6.3))
+		
+			@grams = List.new
+
+			@grams.push(300)	
+			@grams.push(300)
+			@grams.push(200)
+			@grams.push(200)
+
+			@plato1 = PlatoExtended.new("Spanish diet", @comidas, @grams)
+		
+
+			@comidas = List.new
+
+			@comidas.push(Alimento.new("Carne de vaca", 1, 50.0, 164.0, 0.0, 21.1, 3.1))
+			@comidas.push(Alimento.new("Chocolate", 1, 2.3, 3.4, 47.0, 5.3, 30.0))
+			@comidas.push(Alimento.new("Lentejas", 1, 0.4, 3.4, 52.0, 23.5, 0.4))
+			@comidas.push(Alimento.new("Cerdo", 1, 7.6, 11.0, 0.0, 21.5, 6.3))
+
+			@grams = List.new
+
+			@grams.push(500)	
+			@grams.push(300)
+			@grams.push(200)
+			@grams.push(200)
+
+			@plato2 = PlatoExtended.new("Locura por la carne diet", @comidas, @grams)
+		end
+
+		it "should be comarable" do
+			expect(@plato1 < @plato2).to eq true
+		end
+	end
+
+	context "with two dish (Vasca and Vegetariana)" do
+		before(:each) do
+			@comidas = List.new
+
+			@comidas.push(Alimento.new("Pollo", 1, 5.7, 7.1, 0.0, 20.6, 5.6))
+			@comidas.push(Alimento.new("Chocolate", 1, 2.3, 3.4, 47.0, 5.3, 30.0))
+			@comidas.push(Alimento.new("Lentejas", 1, 0.4, 3.4, 52.0, 23.5, 0.4))
+			@comidas.push(Alimento.new("Cerdo", 1, 7.6, 11.0, 0.0, 21.5, 6.3))
+		
+			@grams = List.new
+
+			@grams.push(300)	
+			@grams.push(300)
+			@grams.push(200)
+			@grams.push(200)
+
+			@plato1 = PlatoExtended.new("Spanish diet", @comidas, @grams)
+		
+
+			@comidas = List.new
+
+			@comidas.push(Alimento.new("Carne de vaca", 1, 50.0, 164.0, 0.0, 21.1, 3.1))
+			@comidas.push(Alimento.new("Chocolate", 1, 2.3, 3.4, 47.0, 5.3, 30.0))
+			@comidas.push(Alimento.new("Lentejas", 1, 0.4, 3.4, 52.0, 23.5, 0.4))
+			@comidas.push(Alimento.new("Cerdo", 1, 7.6, 11.0, 0.0, 21.5, 6.3))
+
+			@grams = List.new
+
+			@grams.push(500)	
+			@grams.push(300)
+			@grams.push(200)
+			@grams.push(200)
+
+			@plato2 = PlatoExtended.new("Locura por la carne diet", @comidas, @grams)
+		end
+
+		it "should be comarable" do
+			expect(@plato1 < @plato2).to eq true
+		end
+	end
 end

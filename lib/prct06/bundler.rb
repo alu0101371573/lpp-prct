@@ -111,13 +111,15 @@ module Prct06
 
 			end
 
-			def totalCaloricValue
+			def totalCaloricValue()
 				plato = @alimentsList.head
+				grams = @gramsList.head
 				total = 0.0
 
 				while plato != nil
-					total += plato.value.get_energia
+					total += (plato.value.get_energia() * grams.value) / 100
 					plato = plato.next
+					grams = grams.next
 				end
 
 				return total
@@ -129,6 +131,11 @@ module Prct06
 		end
 
 		class PlatoExtended < Plato
+			include Comparable
+
+			def <=>(other)
+				totalCaloricValue() <=> other.totalCaloricValue()
+			end
 
 			def totalGei
 				# geiPer1000g = geiPerKg / 1000
@@ -148,6 +155,8 @@ module Prct06
 					plato = plato.next
 					grams = grams.next
 				end
+
+				
 
 				return totalGetC
 			end
