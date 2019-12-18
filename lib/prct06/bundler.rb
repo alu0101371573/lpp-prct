@@ -147,7 +147,7 @@ module Prct06
 				totalGetC = 0.0
 
 				while plato != nil
-					geiPer1000g = plato.value.geiPerKg() / 1000
+					geiPer1000g = plato.value.geiPerKg()
 					geiPerXgrams = (geiPer1000g * grams.value) / 1000
 
 					totalGetC += geiPerXgrams
