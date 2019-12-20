@@ -465,6 +465,72 @@ RSpec.describe PlatoExtended do
 		end
 	end
 
+	context "with a menu" do
+		before(:each) do
+			@comidas = List.new
+
+			@comidas.push(Alimento.new("Pollo", 1, 5.7, 7.1, 0.0, 20.6, 5.6))
+			@comidas.push(Alimento.new("Chocolate", 1, 2.3, 3.4, 47.0, 5.3, 30.0))
+			@comidas.push(Alimento.new("Lentejas", 1, 0.4, 3.4, 52.0, 23.5, 0.4))
+			@comidas.push(Alimento.new("Cerdo", 1, 7.6, 11.0, 0.0, 21.5, 6.3))
+		
+			@grams = List.new
+
+			@grams.push(300)	
+			@grams.push(300)
+			@grams.push(200)
+			@grams.push(200)
+
+			@plato1 = PlatoExtended.new("spanish menu", @comidas, @grams)
+
+			#plate 2
+			@comidas2 = List.new
+
+			@comidas2.push(Alimento.new("Carne de vaca", 1, 50.0, 164.0, 0.0, 21.1, 3.1))
+			@comidas2.push(Alimento.new("Chocolate", 1, 2.3, 3.4, 47.0, 5.3, 30.0))
+			@comidas2.push(Alimento.new("Lentejas", 1, 0.4, 3.4, 52.0, 23.5, 0.4))
+			@comidas2.push(Alimento.new("Cerdo", 1, 7.6, 11.0, 0.0, 21.5, 6.3))
+
+			@grams2 = List.new
+
+			@grams2.push(500)	
+			@grams2.push(300)
+			@grams2.push(200)
+			@grams2.push(200)
+
+			@plato2 = PlatoExtended.new("Only meat dish", @comidas2, @grams2)
+
+			@menu = List.new
+			@prices = List.new
+
+			@menu.push(@plato1)
+			@prices.push(20.3)
+
+			@menu.push(@plato2)
+			@prices.push(35)
+		end
+
+		it "should have the nutricional indicator for each of the plates" do
+			expect(@menu.get_at(0).value.nutricional_indicator()).to eq 1.5
+		end
+
+		it "should have the nutricional indicator for the menu" do
+			puts @menu.each { |p| puts p.nutricional_indicator() }
+		end
+
+		it "should return the plate with maximum nutricional indicator" do
+			max = @menu.max { |p1, p2| p1.nutricional_indicator() <=> p2.nutricional_indicator() }
+			expect(max.to_s).to eq "spanish menu"
+		end
+
+		it "increments the prices of the dishes in proportions of the plate with maximum nutricional indicator" do
+			max = @menu.max { |p1, p2| p1.nutricional_indicator() <=> p2.nutricional_indicator() }
+			puts "Before: ", @prices
+			@prices.each_with_index.map { |price, index| @prices.get_at(index).value = price * max.nutricional_indicator() / @menu.get_at(index).value.nutricional_indicator() }
+			puts "After: ", @prices
+		end
+	end
+
 	context "with two dish (Spanish and Locura)" do
 		before(:each) do
 			@comidas = List.new
