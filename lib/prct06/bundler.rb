@@ -499,7 +499,3 @@ module Prct06
 		end	
 	end
 end
-			
-		
-	
-

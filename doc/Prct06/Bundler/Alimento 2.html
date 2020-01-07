@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class Prct06::Bundler::Alimento - RDoc Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../../";
+  var index_rel_prefix = "../../";
+</script>
+
+<script src="../../js/navigation.js" defer></script>
+<script src="../../js/search.js" defer></script>
+<script src="../../js/search_index.js" defer></script>
+<script src="../../js/searcher.js" defer></script>
+<script src="../../js/darkfish.js" defer></script>
+
+<link href="../../css/fonts.css" rel="stylesheet">
+<link href="../../css/rdoc.css" rel="stylesheet">
+
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../../table_of_contents.html#pages">Pages</a>
+    <a href="../../table_of_contents.html#classes">Classes</a>
+    <a href="../../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link"><a href="../../Object.html">Object</a>
+  
+</div>
+
+    <div id="includes-section" class="nav-section">
+  <h3>Included Modules</h3>
+
+  <ul class="link-list">
+  
+  
+    <li><span class="include">Comparable</span>
+  
+  
+  </ul>
+</div>
+
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-c-new">::new</a>
+    
+    <li ><a href="#method-i-3C-3D-3E">#&lt;=&gt;</a>
+    
+    <li ><a href="#method-i-get_energia">#get_energia</a>
+    
+    <li ><a href="#method-i-get_energia_carbs">#get_energia_carbs</a>
+    
+    <li ><a href="#method-i-get_energia_lipidos">#get_energia_lipidos</a>
+    
+    <li ><a href="#method-i-get_energia_proteins">#get_energia_proteins</a>
+    
+    <li ><a href="#method-i-get_info">#get_info</a>
+    
+    <li ><a href="#method-i-indicator_carbono">#indicator_carbono</a>
+    
+    <li ><a href="#method-i-inidicator_energia">#inidicator_energia</a>
+    
+    <li ><a href="#method-i-nutricional_indicator">#nutricional_indicator</a>
+    
+    <li ><a href="#method-i-to_s">#to_s</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-Prct06::Bundler::Alimento">
+  <h1 id="class-Prct06::Bundler::Alimento" class="class">
+    class Prct06::Bundler::Alimento
+  </h1>
+
+  <section class="description">
+    
+<p>Class that rapresents an Aliment which is described by a name, the grams of co2 emitted per kg of produced Aliment, the m^2 per year used in order to produce it, and then we have the energy informations which is described by the amount of carbs, proteins and fat contained in 100g of the Aliment.</p>
+
+  </section>
+
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+    <section class="attribute-method-details" class="method-section">
+      <header>
+        <h3>Attributes</h3>
+      </header>
+
+      
+      <div id="attribute-i-carbs" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">carbs</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-gei" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">gei</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-geiPerKg" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">geiPerKg</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-lipidos" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">lipidos</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-name" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">name</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-proteins" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">proteins</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-terreno" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">terreno</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+    </section>
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-new" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">new</span><span
+            class="method-args">(name, porcions=1, geiPerKg, terreno, carbs, proteins, lipidos)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>The initializer of the class has an attribute called porcions which is used to indicate if we want more than 100g of the Aliment. So, for example, if we wanted 200g of Chicken we would instantiate an object with porcions=2</p>
+          
+          
+
+          
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File lib/prct06/bundler.rb, line 26</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">initialize</span>(<span class="ruby-identifier">name</span>, <span class="ruby-identifier">porcions</span>=<span class="ruby-value">1</span>, <span class="ruby-identifier">geiPerKg</span>, <span class="ruby-identifier">terreno</span>, <span class="ruby-identifier">carbs</span>, <span class="ruby-identifier">proteins</span>, <span class="ruby-identifier">lipidos</span>)
+        <span class="ruby-ivar">@name</span> = <span class="ruby-identifier">name</span>
+        <span class="ruby-ivar">@geiPerKg</span> = <span class="ruby-identifier">porcions</span><span class="ruby-operator">*</span><span class="ruby-identifier">geiPerKg</span>
+        <span class="ruby-ivar">@gei</span> = (<span class="ruby-ivar">@geiPerKg</span> <span class="ruby-operator">/</span> <span class="ruby-value">1000</span>) <span class="ruby-operator">*</span> <span class="ruby-identifier">porcions</span> <span class="ruby-operator">*</span> <span class="ruby-value">100</span>
+        <span class="ruby-ivar">@terreno</span> = <span class="ruby-identifier">porcions</span><span class="ruby-operator">*</span><span class="ruby-identifier">terreno</span>
+        <span class="ruby-ivar">@carbs</span> = <span class="ruby-identifier">porcions</span><span class="ruby-operator">*</span><span class="ruby-identifier">carbs</span>
+        <span class="ruby-ivar">@proteins</span> = <span class="ruby-identifier">porcions</span><span class="ruby-operator">*</span><span class="ruby-identifier">proteins</span>
+        <span class="ruby-ivar">@lipidos</span> = <span class="ruby-identifier">porcions</span><span class="ruby-operator">*</span><span class="ruby-identifier">lipidos</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-3C-3D-3E" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">&lt;=&gt;</span><span
+            class="method-args">(other)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="3C-3D-3E-source">
+            <pre><span class="ruby-comment"># File lib/prct06/bundler.rb, line 17</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">&lt;=&gt;</span>(<span class="ruby-identifier">other</span>)
+   <span class="ruby-identifier">get_energia</span> <span class="ruby-operator">&lt;=&gt;</span> <span class="ruby-identifier">other</span>.<span class="ruby-identifier">get_energia</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-get_energia" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">get_energia</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Method to get the total kcal of &#39;porcions&#39;*100g of the Aliment- using the assumptions that: each gram of fat is equal to 9 kcal; each gram of protein is equal to 4 kcal; each gram of carb is equal to 4 kcal.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="get_energia-source">
+            <pre><span class="ruby-comment"># File lib/prct06/bundler.rb, line 68</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">get_energia</span>
+        <span class="ruby-ivar">@lipidos</span> <span class="ruby-operator">*</span> <span class="ruby-value">9</span> <span class="ruby-operator">+</span> <span class="ruby-ivar">@proteins</span> <span class="ruby-operator">*</span> <span class="ruby-value">4</span> <span class="ruby-operator">+</span> <span class="ruby-ivar">@carbs</span> <span class="ruby-operator">*</span> <span class="ruby-value">4</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-get_energia_carbs" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">get_energia_carbs</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>We assume that each gram of carb is equal to 4 kcal</p>
+          
+          
+
+          
+          <div class="method-source-code" id="get_energia_carbs-source">
+            <pre><span class="ruby-comment"># File lib/prct06/bundler.rb, line 46</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">get_energia_carbs</span>
+        <span class="ruby-ivar">@carbs</span> <span class="ruby-operator">*</span> <span class="ruby-value">4</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-get_energia_lipidos" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">get_energia_lipidos</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>We assume that each gram of fat is equal to 9 kcal</p>
+          
+          
+
+          
+          <div class="method-source-code" id="get_energia_lipidos-source">
+            <pre><span class="ruby-comment"># File lib/prct06/bundler.rb, line 58</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">get_energia_lipidos</span>
+        <span class="ruby-ivar">@lipidos</span> <span class="ruby-operator">*</span> <span class="ruby-value">9</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-get_energia_proteins" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">get_energia_proteins</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>We assume that each gram of protein is equal to 4 kcal</p>
+          
+          
+
+          
+          <div class="method-source-code" id="get_energia_proteins-source">
+            <pre><span class="ruby-comment"># File lib/prct06/bundler.rb, line 52</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">get_energia_proteins</span>
+        <span class="ruby-ivar">@proteins</span> <span class="ruby-operator">*</span> <span class="ruby-value">4</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-get_info" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">get_info</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="get_info-source">
+            <pre><span class="ruby-comment"># File lib/prct06/bundler.rb, line 40</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">get_info</span>
+        <span class="ruby-ivar">@name</span> <span class="ruby-operator">+</span> <span class="ruby-string">&quot;\ngei: &quot;</span> <span class="ruby-operator">+</span> <span class="ruby-ivar">@gei</span> <span class="ruby-operator">+</span> <span class="ruby-string">&quot; terreno: &quot;</span> <span class="ruby-operator">+</span> <span class="ruby-ivar">@terreno</span> <span class="ruby-operator">+</span> <span class="ruby-string">&quot; carbs: &quot;</span> <span class="ruby-operator">+</span> <span class="ruby-ivar">@carbs</span> <span class="ruby-operator">+</span> <span class="ruby-string">&quot;g  proteins: &quot;</span> <span class="ruby-operator">+</span> <span class="ruby-ivar">@proteins</span> <span class="ruby-operator">+</span> <span class="ruby-string">&quot;g  Lipidos: &quot;</span> <span class="ruby-operator">+</span> <span class="ruby-ivar">@lipidos</span> <span class="ruby-operator">+</span> <span class="ruby-string">&quot;g&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-indicator_carbono" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">indicator_carbono</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@gei contains the g of co2 to produce the aliment I think that the indicators shown in the practice description might be wrong because it&#39;s impossible that to have a regular impact an aliment need to have 1kg of co2 emissions to be produced.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="indicator_carbono-source">
+            <pre><span class="ruby-comment"># File lib/prct06/bundler.rb, line 103</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">indicator_carbono</span>()
+        <span class="ruby-keyword">if</span> <span class="ruby-ivar">@gei</span> <span class="ruby-operator">&lt;</span> <span class="ruby-value">8.0</span>
+                <span class="ruby-keyword">return</span> <span class="ruby-value">1.0</span>
+        <span class="ruby-keyword">elsif</span> <span class="ruby-ivar">@gei</span> <span class="ruby-operator">&lt;=</span> <span class="ruby-value">12.0</span>
+                <span class="ruby-keyword">return</span> <span class="ruby-value">2.0</span>
+        <span class="ruby-keyword">else</span>
+                <span class="ruby-keyword">return</span> <span class="ruby-value">3.0</span>
+        <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-inidicator_energia" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">inidicator_energia</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>This method calculated the energy indicator, also a number which ranges from 0 to 3 it equals 1.0 if the kcal of the aliment is less than 670; it equals 2.0 if the kcal of the aliment is greater than 670 and less than or equal to 830; otherwise it will equals 3.0</p>
+          
+          
+
+          
+          <div class="method-source-code" id="inidicator_energia-source">
+            <pre><span class="ruby-comment"># File lib/prct06/bundler.rb, line 86</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">inidicator_energia</span>()
+        <span class="ruby-identifier">e</span> = <span class="ruby-identifier">get_energia</span>()
+
+        <span class="ruby-keyword">if</span> <span class="ruby-identifier">e</span> <span class="ruby-operator">&lt;</span> <span class="ruby-value">670</span>
+                <span class="ruby-keyword">return</span> <span class="ruby-value">1.0</span>
+        <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">e</span> <span class="ruby-operator">&lt;=</span> <span class="ruby-value">830</span>
+                <span class="ruby-keyword">return</span> <span class="ruby-value">2.0</span>
+        <span class="ruby-keyword">else</span>
+                <span class="ruby-keyword">return</span> <span class="ruby-value">3.0</span>
+        <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-nutricional_indicator" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">nutricional_indicator</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>The nutricional indicator of an Aliment is described by a number from 0 to 3 which means that the food has a Low nutricional impact if this item is within 0 and 1; it has a Regular impact if it&#39;s within 1 and 2 or an High impact if it&#39;s withing 2 and 3.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="nutricional_indicator-source">
+            <pre><span class="ruby-comment"># File lib/prct06/bundler.rb, line 77</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">nutricional_indicator</span>()
+        (<span class="ruby-identifier">indicator_energia</span>() <span class="ruby-operator">+</span> <span class="ruby-identifier">indicator_carbono</span>())<span class="ruby-operator">/</span><span class="ruby-value">2</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-to_s" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">to_s</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="to_s-source">
+            <pre><span class="ruby-comment"># File lib/prct06/bundler.rb, line 36</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">to_s</span>
+        <span class="ruby-keyword">return</span> <span class="ruby-ivar">@name</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="https://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://ruby.github.io/rdoc/">RDoc</a> 6.2.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+
