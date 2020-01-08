@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class Prct06::Bundler::Menu - RDoc Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../../";
+  var index_rel_prefix = "../../";
+</script>
+
+<script src="../../js/navigation.js" defer></script>
+<script src="../../js/search.js" defer></script>
+<script src="../../js/search_index.js" defer></script>
+<script src="../../js/searcher.js" defer></script>
+<script src="../../js/darkfish.js" defer></script>
+
+<link href="../../css/fonts.css" rel="stylesheet">
+<link href="../../css/rdoc.css" rel="stylesheet">
+
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../../table_of_contents.html#pages">Pages</a>
+    <a href="../../table_of_contents.html#classes">Classes</a>
+    <a href="../../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link"><a href="../../Object.html">Object</a>
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-c-new">::new</a>
+    
+    <li ><a href="#method-i-carbsPercent">#carbsPercent</a>
+    
+    <li ><a href="#method-i-componente">#componente</a>
+    
+    <li ><a href="#method-i-descripcion">#descripcion</a>
+    
+    <li ><a href="#method-i-fatPercent">#fatPercent</a>
+    
+    <li ><a href="#method-i-plato">#plato</a>
+    
+    <li ><a href="#method-i-precio">#precio</a>
+    
+    <li ><a href="#method-i-proteinsPercent">#proteinsPercent</a>
+    
+    <li ><a href="#method-i-to_s">#to_s</a>
+    
+    <li ><a href="#method-i-totalCaloricValue">#totalCaloricValue</a>
+    
+    <li ><a href="#method-i-totalGEI">#totalGEI</a>
+    
+    <li ><a href="#method-i-totalTerreno">#totalTerreno</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-Prct06::Bundler::Menu">
+  <h1 id="class-Prct06::Bundler::Menu" class="class">
+    class Prct06::Bundler::Menu
+  </h1>
+
+  <section class="description">
+    
+<p>A menu is formed by a set of dishes each associated with their prices. The menu also has a name and a total price. Remember that a Dish (Plato) is itself defined by a set of Aliments each associated with the amount of grams. We don&#39;t assume that the total price is equal to the sum of the singular prices since the preparation of a menu might account for an additional price. It exposes an internet DSL in order to create new object more naturally.</p>
+
+  </section>
+
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+    <section class="attribute-method-details" class="method-section">
+      <header>
+        <h3>Attributes</h3>
+      </header>
+
+      
+      <div id="attribute-i-description" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">description</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-dishes" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">dishes</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-name" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">name</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-price" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">price</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-prices" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">prices</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+    </section>
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-new" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">new</span><span
+            class="method-args">(name, description=nil, dishes=nil, prices=nil, price=nil) { |self| ... }</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File lib/prct06/bundler.rb, line 278</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">initialize</span>(<span class="ruby-identifier">name</span>, <span class="ruby-identifier">description</span>=<span class="ruby-keyword">nil</span>, <span class="ruby-identifier">dishes</span>=<span class="ruby-keyword">nil</span>, <span class="ruby-identifier">prices</span>=<span class="ruby-keyword">nil</span>, <span class="ruby-identifier">price</span>=<span class="ruby-keyword">nil</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+        <span class="ruby-ivar">@name</span> = <span class="ruby-identifier">name</span>
+
+        <span class="ruby-keyword">if</span> <span class="ruby-identifier">dishes</span> <span class="ruby-operator">!=</span> <span class="ruby-keyword">nil</span>
+                <span class="ruby-ivar">@dishes</span> = <span class="ruby-identifier">dishes</span>
+        <span class="ruby-keyword">else</span>
+                <span class="ruby-ivar">@dishes</span> = <span class="ruby-constant">List</span>.<span class="ruby-identifier">new</span>
+        <span class="ruby-keyword">end</span>
+
+        <span class="ruby-keyword">if</span> <span class="ruby-identifier">prices</span> <span class="ruby-operator">!=</span> <span class="ruby-keyword">nil</span>
+                <span class="ruby-ivar">@prices</span> = <span class="ruby-identifier">prices</span>
+        <span class="ruby-keyword">else</span>
+                <span class="ruby-ivar">@prices</span> = <span class="ruby-constant">List</span>.<span class="ruby-identifier">new</span>
+        <span class="ruby-keyword">end</span>
+        <span class="ruby-ivar">@price</span> = <span class="ruby-identifier">price</span>
+
+        <span class="ruby-keyword">if</span> <span class="ruby-identifier">block_given?</span>
+                <span class="ruby-keyword">if</span> <span class="ruby-identifier">block</span>.<span class="ruby-identifier">arity</span> <span class="ruby-operator">==</span> <span class="ruby-value">1</span>
+                   <span class="ruby-keyword">yield</span> <span class="ruby-keyword">self</span>
+                <span class="ruby-keyword">else</span>
+                   <span class="ruby-identifier">instance_eval</span>(<span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>) 
+                <span class="ruby-keyword">end</span>
+        <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-carbsPercent" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">carbsPercent</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>The carbs percentage of a menu is calculated as the average of the carbs presents in the dishes which compose it</p>
+          
+          
+
+          
+          <div class="method-source-code" id="carbsPercent-source">
+            <pre><span class="ruby-comment"># File lib/prct06/bundler.rb, line 330</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">carbsPercent</span>()
+        <span class="ruby-identifier">tot</span> = <span class="ruby-ivar">@dishes</span>.<span class="ruby-identifier">inject</span>(<span class="ruby-value">0.0</span>) { <span class="ruby-operator">|</span><span class="ruby-identifier">tot</span>, <span class="ruby-identifier">dish</span><span class="ruby-operator">|</span> <span class="ruby-identifier">tot</span> <span class="ruby-operator">+=</span> <span class="ruby-identifier">dish</span>.<span class="ruby-identifier">carbsPercent</span>() }
+        <span class="ruby-keyword">return</span> <span class="ruby-identifier">tot</span> <span class="ruby-operator">/</span> <span class="ruby-ivar">@dishes</span>.<span class="ruby-identifier">length</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-componente" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">componente</span><span
+            class="method-args">(options={})</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="componente-source">
+            <pre><span class="ruby-comment"># File lib/prct06/bundler.rb, line 307</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">componente</span>(<span class="ruby-identifier">options</span>={})
+        <span class="ruby-ivar">@dishes</span>.<span class="ruby-identifier">push</span>(<span class="ruby-identifier">options</span>[<span class="ruby-value">:descripcion</span>])
+        <span class="ruby-ivar">@prices</span>.<span class="ruby-identifier">push</span>(<span class="ruby-identifier">options</span>[<span class="ruby-value">:precio</span>])
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-descripcion" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">descripcion</span><span
+            class="method-args">(name)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="descripcion-source">
+            <pre><span class="ruby-comment"># File lib/prct06/bundler.rb, line 303</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">descripcion</span>(<span class="ruby-identifier">name</span>)
+        <span class="ruby-ivar">@description</span> = <span class="ruby-identifier">name</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-fatPercent" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">fatPercent</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="fatPercent-source">
+            <pre><span class="ruby-comment"># File lib/prct06/bundler.rb, line 340</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">fatPercent</span>()
+        <span class="ruby-identifier">tot</span> = <span class="ruby-ivar">@dishes</span>.<span class="ruby-identifier">inject</span>(<span class="ruby-value">0.0</span>) { <span class="ruby-operator">|</span><span class="ruby-identifier">tot</span>, <span class="ruby-identifier">dish</span><span class="ruby-operator">|</span> <span class="ruby-identifier">tot</span> <span class="ruby-operator">+=</span> <span class="ruby-identifier">dish</span>.<span class="ruby-identifier">lipidsPercent</span>() }
+        <span class="ruby-keyword">return</span> <span class="ruby-identifier">tot</span> <span class="ruby-operator">/</span> <span class="ruby-ivar">@dishes</span>.<span class="ruby-identifier">length</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-plato" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">plato</span><span
+            class="method-args">(opt)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="plato-source">
+            <pre><span class="ruby-comment"># File lib/prct06/bundler.rb, line 316</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">plato</span>(<span class="ruby-identifier">opt</span>)
+        <span class="ruby-identifier">alimentsList</span> = <span class="ruby-constant">List</span>.<span class="ruby-identifier">new</span>
+        <span class="ruby-identifier">gramsList</span> = <span class="ruby-constant">List</span>.<span class="ruby-identifier">new</span>
+        <span class="ruby-identifier">opt</span>[<span class="ruby-value">:alimentsList</span>].<span class="ruby-identifier">each</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">aliment</span><span class="ruby-operator">|</span> <span class="ruby-identifier">alimentsList</span>.<span class="ruby-identifier">push</span>(<span class="ruby-identifier">aliment</span>) }
+        <span class="ruby-identifier">opt</span>[<span class="ruby-value">:gramsList</span>].<span class="ruby-identifier">each</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">grams</span><span class="ruby-operator">|</span> <span class="ruby-identifier">gramsList</span>.<span class="ruby-identifier">push</span>(<span class="ruby-identifier">grams</span>) }
+
+        <span class="ruby-identifier">newPlato</span> = <span class="ruby-constant">PlatoExtended</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">opt</span>[<span class="ruby-value">:name</span>], <span class="ruby-identifier">alimentsList</span>, <span class="ruby-identifier">gramsList</span>)
+        <span class="ruby-ivar">@dishes</span>.<span class="ruby-identifier">push</span>(<span class="ruby-identifier">newPlato</span>)
+        <span class="ruby-ivar">@prices</span>.<span class="ruby-identifier">push</span>(<span class="ruby-identifier">opt</span>[<span class="ruby-value">:precio</span>])
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-precio" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">precio</span><span
+            class="method-args">(price)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="precio-source">
+            <pre><span class="ruby-comment"># File lib/prct06/bundler.rb, line 312</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">precio</span>(<span class="ruby-identifier">price</span>)
+        <span class="ruby-ivar">@price</span> = <span class="ruby-identifier">price</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-proteinsPercent" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">proteinsPercent</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="proteinsPercent-source">
+            <pre><span class="ruby-comment"># File lib/prct06/bundler.rb, line 335</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">proteinsPercent</span>()
+        <span class="ruby-identifier">tot</span> = <span class="ruby-ivar">@dishes</span>.<span class="ruby-identifier">inject</span>(<span class="ruby-value">0.0</span>) { <span class="ruby-operator">|</span><span class="ruby-identifier">tot</span>, <span class="ruby-identifier">dish</span><span class="ruby-operator">|</span> <span class="ruby-identifier">tot</span> <span class="ruby-operator">+=</span> <span class="ruby-identifier">dish</span>.<span class="ruby-identifier">proteinsPercent</span>() }
+        <span class="ruby-keyword">return</span> <span class="ruby-identifier">tot</span> <span class="ruby-operator">/</span> <span class="ruby-ivar">@dishes</span>.<span class="ruby-identifier">length</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-to_s" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">to_s</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="to_s-source">
+            <pre><span class="ruby-comment"># File lib/prct06/bundler.rb, line 357</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">to_s</span>
+        <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;=== #{@name} ===&quot;</span>
+        <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;#{@description}&quot;</span>
+        <span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;Composed of:&quot;</span>
+        <span class="ruby-ivar">@dishes</span>.<span class="ruby-identifier">each_with_index</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">dish</span>, <span class="ruby-identifier">index</span><span class="ruby-operator">|</span> 
+                <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;- #{dish} #{@prices.get_at(index).value}€&quot;</span>
+        <span class="ruby-keyword">end</span>
+        <span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;\nNutritional values:&quot;</span>
+        <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;Carbs #{carbsPercent().round(2)}%&quot;</span>
+        <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;Proteins #{proteinsPercent().round(2)}%&quot;</span>
+        <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;Fat #{fatPercent().round(2)}%&quot;</span>
+        <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;#{totalCaloricValue().round(2)} kcal&quot;</span>
+
+        <span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;\nAmbiental values:&quot;</span>
+        <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;#{totalGEI()} co2&quot;</span>
+        <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;#{totalTerreno()} terreno&quot;</span>
+        <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;\nTotal Price = #{@price}&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-totalCaloricValue" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">totalCaloricValue</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="totalCaloricValue-source">
+            <pre><span class="ruby-comment"># File lib/prct06/bundler.rb, line 345</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">totalCaloricValue</span>()
+        <span class="ruby-keyword">return</span> <span class="ruby-ivar">@dishes</span>.<span class="ruby-identifier">inject</span>(<span class="ruby-value">0.0</span>) { <span class="ruby-operator">|</span><span class="ruby-identifier">tot</span>, <span class="ruby-identifier">dish</span><span class="ruby-operator">|</span> <span class="ruby-identifier">tot</span> <span class="ruby-operator">+=</span> <span class="ruby-identifier">dish</span>.<span class="ruby-identifier">totalCaloricValue</span>() }
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-totalGEI" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">totalGEI</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="totalGEI-source">
+            <pre><span class="ruby-comment"># File lib/prct06/bundler.rb, line 349</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">totalGEI</span>()
+        <span class="ruby-keyword">return</span> <span class="ruby-ivar">@dishes</span>.<span class="ruby-identifier">inject</span>(<span class="ruby-value">0.0</span>) { <span class="ruby-operator">|</span><span class="ruby-identifier">tot</span>, <span class="ruby-identifier">dish</span><span class="ruby-operator">|</span> <span class="ruby-identifier">tot</span> <span class="ruby-operator">+=</span> <span class="ruby-identifier">dish</span>.<span class="ruby-identifier">totalGei</span>() }
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-totalTerreno" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">totalTerreno</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="totalTerreno-source">
+            <pre><span class="ruby-comment"># File lib/prct06/bundler.rb, line 353</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">totalTerreno</span>()
+        <span class="ruby-keyword">return</span> <span class="ruby-ivar">@dishes</span>.<span class="ruby-identifier">inject</span>(<span class="ruby-value">0.0</span>) { <span class="ruby-operator">|</span><span class="ruby-identifier">tot</span>, <span class="ruby-identifier">dish</span><span class="ruby-operator">|</span> <span class="ruby-identifier">tot</span> <span class="ruby-operator">+=</span> <span class="ruby-identifier">dish</span>.<span class="ruby-identifier">totalTerreno</span>() }
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="https://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://ruby.github.io/rdoc/">RDoc</a> 6.2.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

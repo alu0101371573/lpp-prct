@@ -214,7 +214,7 @@
 
           
           <div class="method-source-code" id="new-source">
-            <pre><span class="ruby-comment"># File lib/prct06/bundler.rb, line 366</span>
+            <pre><span class="ruby-comment"># File lib/prct06/bundler.rb, line 499</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">initialize</span>
         <span class="ruby-ivar">@length</span> = <span class="ruby-value">0</span>
 <span class="ruby-keyword">end</span></pre>
@@ -255,7 +255,7 @@
 
           
           <div class="method-source-code" id="3C-3D-3E-source">
-            <pre><span class="ruby-comment"># File lib/prct06/bundler.rb, line 317</span>
+            <pre><span class="ruby-comment"># File lib/prct06/bundler.rb, line 450</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">&lt;=&gt;</span>(<span class="ruby-identifier">other</span>)
         <span class="ruby-keyword">if</span> <span class="ruby-ivar">@length</span> <span class="ruby-operator">&lt;</span> <span class="ruby-identifier">other</span>.<span class="ruby-identifier">length</span>
                 <span class="ruby-keyword">return</span> <span class="ruby-value">-1</span>
@@ -307,7 +307,7 @@
 
           
           <div class="method-source-code" id="_get_at_list-source">
-            <pre><span class="ruby-comment"># File lib/prct06/bundler.rb, line 409</span>
+            <pre><span class="ruby-comment"># File lib/prct06/bundler.rb, line 542</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">_get_at_list</span>(<span class="ruby-identifier">current</span>, <span class="ruby-identifier">position</span>)
         <span class="ruby-keyword">if</span> <span class="ruby-identifier">position</span> <span class="ruby-operator">==</span> <span class="ruby-value">0</span>
                 <span class="ruby-keyword">return</span> <span class="ruby-identifier">current</span>
@@ -344,7 +344,7 @@
 
           
           <div class="method-source-code" id="_insert_in_list-source">
-            <pre><span class="ruby-comment"># File lib/prct06/bundler.rb, line 466</span>
+            <pre><span class="ruby-comment"># File lib/prct06/bundler.rb, line 599</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">_insert_in_list</span>(<span class="ruby-identifier">head</span>, <span class="ruby-identifier">position</span>, <span class="ruby-identifier">element</span>)
         <span class="ruby-keyword">if</span> <span class="ruby-identifier">position</span> <span class="ruby-operator">==</span> <span class="ruby-value">0</span>
                 <span class="ruby-identifier">node</span> = <span class="ruby-identifier">newNode</span>(<span class="ruby-identifier">head</span>.<span class="ruby-identifier">prev</span>, <span class="ruby-identifier">element</span>, <span class="ruby-identifier">head</span>)
@@ -383,7 +383,7 @@
 
           
           <div class="method-source-code" id="_remove_head-source">
-            <pre><span class="ruby-comment"># File lib/prct06/bundler.rb, line 428</span>
+            <pre><span class="ruby-comment"># File lib/prct06/bundler.rb, line 561</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">_remove_head</span>()
         <span class="ruby-ivar">@head</span> = <span class="ruby-ivar">@head</span>.<span class="ruby-identifier">next</span>
         <span class="ruby-keyword">if</span> <span class="ruby-ivar">@head</span> <span class="ruby-operator">!=</span> <span class="ruby-keyword">nil</span>
@@ -422,7 +422,7 @@
 
           
           <div class="method-source-code" id="_remove_in_list-source">
-            <pre><span class="ruby-comment"># File lib/prct06/bundler.rb, line 438</span>
+            <pre><span class="ruby-comment"># File lib/prct06/bundler.rb, line 571</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">_remove_in_list</span>(<span class="ruby-identifier">head</span>, <span class="ruby-identifier">position</span>)
         <span class="ruby-keyword">if</span> <span class="ruby-identifier">position</span> <span class="ruby-operator">==</span> <span class="ruby-value">0</span>
                 <span class="ruby-identifier">head</span>.<span class="ruby-identifier">prev</span>.<span class="ruby-identifier">next</span> = <span class="ruby-identifier">head</span>.<span class="ruby-identifier">next</span>
@@ -460,7 +460,7 @@
 
           
           <div class="method-source-code" id="each-source">
-            <pre><span class="ruby-comment"># File lib/prct06/bundler.rb, line 346</span>
+            <pre><span class="ruby-comment"># File lib/prct06/bundler.rb, line 479</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">each</span>()
         <span class="ruby-keyword">if</span> <span class="ruby-ivar">@head</span>
                 <span class="ruby-keyword">yield</span> <span class="ruby-ivar">@head</span>.<span class="ruby-identifier">value</span>
@@ -496,7 +496,7 @@
 
           
           <div class="method-source-code" id="get_at-source">
-            <pre><span class="ruby-comment"># File lib/prct06/bundler.rb, line 419</span>
+            <pre><span class="ruby-comment"># File lib/prct06/bundler.rb, line 552</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">get_at</span>(<span class="ruby-identifier">position</span>)
         <span class="ruby-keyword">if</span> <span class="ruby-ivar">@head</span> <span class="ruby-operator">!=</span> <span class="ruby-keyword">nil</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">position</span> <span class="ruby-operator">&gt;=</span> <span class="ruby-value">0</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">position</span> <span class="ruby-operator">&lt;</span> <span class="ruby-ivar">@head</span>.<span class="ruby-identifier">length</span>
                 <span class="ruby-comment"># TODO: could be improved by looking backworkds from tail if position is nearear length than 0</span>
@@ -534,7 +534,7 @@
 
           
           <div class="method-source-code" id="insert_at-source">
-            <pre><span class="ruby-comment"># File lib/prct06/bundler.rb, line 478</span>
+            <pre><span class="ruby-comment"># File lib/prct06/bundler.rb, line 611</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">insert_at</span>(<span class="ruby-identifier">position</span>, <span class="ruby-identifier">element</span>)
         <span class="ruby-keyword">if</span> <span class="ruby-identifier">position</span> <span class="ruby-operator">==</span> <span class="ruby-value">0</span>
                 <span class="ruby-ivar">@head</span> = <span class="ruby-identifier">newNode</span>(<span class="ruby-keyword">nil</span>, <span class="ruby-identifier">element</span>, <span class="ruby-ivar">@head</span>)
@@ -585,7 +585,7 @@
 
           
           <div class="method-source-code" id="newNode-source">
-            <pre><span class="ruby-comment"># File lib/prct06/bundler.rb, line 370</span>
+            <pre><span class="ruby-comment"># File lib/prct06/bundler.rb, line 503</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">newNode</span>(<span class="ruby-identifier">prevN</span>, <span class="ruby-identifier">valueN</span>, <span class="ruby-identifier">nextN</span>)
         <span class="ruby-constant">Struct</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">:prev</span>, <span class="ruby-value">:value</span>, <span class="ruby-value">:next</span>).<span class="ruby-identifier">new</span>(<span class="ruby-identifier">prevN</span>, <span class="ruby-identifier">valueN</span>, <span class="ruby-identifier">nextN</span>)
 <span class="ruby-keyword">end</span></pre>
@@ -618,7 +618,7 @@
 
           
           <div class="method-source-code" id="pop-source">
-            <pre><span class="ruby-comment"># File lib/prct06/bundler.rb, line 393</span>
+            <pre><span class="ruby-comment"># File lib/prct06/bundler.rb, line 526</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">pop</span>
         <span class="ruby-keyword">if</span> <span class="ruby-ivar">@length</span> <span class="ruby-operator">==</span> <span class="ruby-value">0</span>
                 <span class="ruby-identifier">raise</span> <span class="ruby-constant">RuntimeError</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&quot;Cannot pop from empty list.&quot;</span>)
@@ -663,7 +663,7 @@
 
           
           <div class="method-source-code" id="push-source">
-            <pre><span class="ruby-comment"># File lib/prct06/bundler.rb, line 376</span>
+            <pre><span class="ruby-comment"># File lib/prct06/bundler.rb, line 509</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">push</span>(<span class="ruby-identifier">value</span>)
         <span class="ruby-keyword">if</span> <span class="ruby-ivar">@length</span> <span class="ruby-operator">==</span> <span class="ruby-value">0</span>
                 <span class="ruby-ivar">@head</span> = <span class="ruby-ivar">@tail</span> = <span class="ruby-identifier">newNode</span>(<span class="ruby-keyword">nil</span>, <span class="ruby-identifier">value</span>, <span class="ruby-keyword">nil</span>)
@@ -707,7 +707,7 @@
 
           
           <div class="method-source-code" id="remove_at-source">
-            <pre><span class="ruby-comment"># File lib/prct06/bundler.rb, line 449</span>
+            <pre><span class="ruby-comment"># File lib/prct06/bundler.rb, line 582</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">remove_at</span>(<span class="ruby-identifier">position</span>)
         <span class="ruby-keyword">if</span> <span class="ruby-ivar">@head</span> <span class="ruby-operator">!=</span> <span class="ruby-keyword">nil</span>
                 <span class="ruby-keyword">if</span> <span class="ruby-identifier">position</span> <span class="ruby-operator">==</span> <span class="ruby-value">0</span>
@@ -753,7 +753,7 @@
 
           
           <div class="method-source-code" id="to_s-source">
-            <pre><span class="ruby-comment"># File lib/prct06/bundler.rb, line 342</span>
+            <pre><span class="ruby-comment"># File lib/prct06/bundler.rb, line 475</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">to_s</span>
         <span class="ruby-string">&#39;[&#39;</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">map</span>(<span class="ruby-operator">&amp;</span><span class="ruby-value">:to_s</span>).<span class="ruby-identifier">join</span>(<span class="ruby-string">&#39;, &#39;</span>) <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&#39;]&#39;</span>
 <span class="ruby-keyword">end</span></pre>

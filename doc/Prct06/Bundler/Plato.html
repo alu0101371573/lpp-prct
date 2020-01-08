@@ -77,6 +77,8 @@
     
     <li ><a href="#method-c-new">::new</a>
     
+    <li ><a href="#method-i-alimento">#alimento</a>
+    
     <li ><a href="#method-i-carbsPercent">#carbsPercent</a>
     
     <li ><a href="#method-i-co2Percent">#co2Percent</a>
@@ -86,6 +88,8 @@
     <li ><a href="#method-i-indicator_energia">#indicator_energia</a>
     
     <li ><a href="#method-i-lipidsPercent">#lipidsPercent</a>
+    
+    <li ><a href="#method-i-nombre">#nombre</a>
     
     <li ><a href="#method-i-nutricional_indicator">#nutricional_indicator</a>
     
@@ -180,7 +184,7 @@
         
         <div class="method-heading">
           <span class="method-name">new</span><span
-            class="method-args">(name, alimentsList, gramsList)</span>
+            class="method-args">(name, alimentsList=nil, gramsList=nil) { |self| ... }</span>
           
           <span class="method-click-advice">click to toggle source</span>
           
@@ -196,10 +200,23 @@
           
           <div class="method-source-code" id="new-source">
             <pre><span class="ruby-comment"># File lib/prct06/bundler.rb, line 121</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">initialize</span>(<span class="ruby-identifier">name</span>, <span class="ruby-identifier">alimentsList</span>, <span class="ruby-identifier">gramsList</span>)
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">initialize</span>(<span class="ruby-identifier">name</span>, <span class="ruby-identifier">alimentsList</span>=<span class="ruby-keyword">nil</span>, <span class="ruby-identifier">gramsList</span>=<span class="ruby-keyword">nil</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
         <span class="ruby-ivar">@plateName</span> = <span class="ruby-identifier">name</span>
-        <span class="ruby-ivar">@alimentsList</span> = <span class="ruby-identifier">alimentsList</span>
-        <span class="ruby-ivar">@gramsList</span> = <span class="ruby-identifier">gramsList</span>
+        <span class="ruby-keyword">if</span> <span class="ruby-identifier">alimentsList</span> <span class="ruby-operator">!=</span> <span class="ruby-keyword">nil</span>
+                <span class="ruby-ivar">@alimentsList</span> = <span class="ruby-identifier">alimentsList</span>
+                <span class="ruby-ivar">@gramsList</span> = <span class="ruby-identifier">gramsList</span>
+        <span class="ruby-keyword">else</span>
+                <span class="ruby-ivar">@alimentsList</span> = <span class="ruby-constant">List</span>.<span class="ruby-identifier">new</span>
+                <span class="ruby-ivar">@gramsList</span> = <span class="ruby-constant">List</span>.<span class="ruby-identifier">new</span>
+        <span class="ruby-keyword">end</span>
+
+        <span class="ruby-keyword">if</span> <span class="ruby-identifier">block_given?</span>
+                <span class="ruby-keyword">if</span> <span class="ruby-identifier">block</span>.<span class="ruby-identifier">arity</span> <span class="ruby-operator">==</span> <span class="ruby-value">1</span>
+                   <span class="ruby-keyword">yield</span> <span class="ruby-keyword">self</span>
+                <span class="ruby-keyword">else</span>
+                   <span class="ruby-identifier">instance_eval</span>(<span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>) 
+                <span class="ruby-keyword">end</span>
+        <span class="ruby-keyword">end</span>
 <span class="ruby-keyword">end</span></pre>
           </div>
           
@@ -217,6 +234,40 @@
        <header>
          <h3>Public Instance Methods</h3>
        </header>
+
+    
+      <div id="method-i-alimento" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">alimento</span><span
+            class="method-args">(opt)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="alimento-source">
+            <pre><span class="ruby-comment"># File lib/prct06/bundler.rb, line 221</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">alimento</span>(<span class="ruby-identifier">opt</span>)
+        <span class="ruby-ivar">@alimentsList</span>.<span class="ruby-identifier">push</span>(<span class="ruby-identifier">opt</span>[<span class="ruby-value">:descripcion</span>])
+        <span class="ruby-ivar">@gramsList</span>.<span class="ruby-identifier">push</span>(<span class="ruby-identifier">opt</span>[<span class="ruby-value">:gramos</span>])
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
 
     
       <div id="method-i-carbsPercent" class="method-detail ">
@@ -238,7 +289,7 @@
 
           
           <div class="method-source-code" id="carbsPercent-source">
-            <pre><span class="ruby-comment"># File lib/prct06/bundler.rb, line 148</span>
+            <pre><span class="ruby-comment"># File lib/prct06/bundler.rb, line 165</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">carbsPercent</span>()
         <span class="ruby-identifier">plato</span> = <span class="ruby-ivar">@alimentsList</span>.<span class="ruby-identifier">head</span>
         <span class="ruby-identifier">grams</span> = <span class="ruby-ivar">@gramsList</span>.<span class="ruby-identifier">head</span>
@@ -284,9 +335,9 @@
 
           
           <div class="method-source-code" id="co2Percent-source">
-            <pre><span class="ruby-comment"># File lib/prct06/bundler.rb, line 184</span>
+            <pre><span class="ruby-comment"># File lib/prct06/bundler.rb, line 201</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">co2Percent</span>()
-
+        
 <span class="ruby-keyword">end</span></pre>
           </div>
           
@@ -317,7 +368,7 @@
 
           
           <div class="method-source-code" id="indicator_carbono-source">
-            <pre><span class="ruby-comment"># File lib/prct06/bundler.rb, line 226</span>
+            <pre><span class="ruby-comment"># File lib/prct06/bundler.rb, line 248</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">indicator_carbono</span>()
         <span class="ruby-identifier">c</span> = <span class="ruby-identifier">totalGei</span>() <span class="ruby-operator">/</span> <span class="ruby-ivar">@alimentsList</span>.<span class="ruby-identifier">length</span>
         <span class="ruby-comment"># c is the avg grams of co2 per plate</span>
@@ -359,7 +410,7 @@
 
           
           <div class="method-source-code" id="indicator_energia-source">
-            <pre><span class="ruby-comment"># File lib/prct06/bundler.rb, line 207</span>
+            <pre><span class="ruby-comment"># File lib/prct06/bundler.rb, line 229</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">indicator_energia</span>()
         <span class="ruby-identifier">e</span> = <span class="ruby-identifier">totalCaloricValue</span>() <span class="ruby-operator">/</span> <span class="ruby-ivar">@alimentsList</span>.<span class="ruby-identifier">length</span>
 
@@ -400,7 +451,7 @@
 
           
           <div class="method-source-code" id="lipidsPercent-source">
-            <pre><span class="ruby-comment"># File lib/prct06/bundler.rb, line 167</span>
+            <pre><span class="ruby-comment"># File lib/prct06/bundler.rb, line 184</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">lipidsPercent</span>()
         <span class="ruby-identifier">plato</span> = <span class="ruby-ivar">@alimentsList</span>.<span class="ruby-identifier">head</span>
         <span class="ruby-identifier">grams</span> = <span class="ruby-ivar">@gramsList</span>.<span class="ruby-identifier">head</span>
@@ -416,6 +467,39 @@
         <span class="ruby-keyword">end</span>
 
         <span class="ruby-keyword">return</span> (<span class="ruby-identifier">totalLipidsEnergy</span> <span class="ruby-operator">*</span> <span class="ruby-value">100</span>) <span class="ruby-operator">/</span> <span class="ruby-identifier">totalEnergy</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-nombre" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">nombre</span><span
+            class="method-args">(name)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="nombre-source">
+            <pre><span class="ruby-comment"># File lib/prct06/bundler.rb, line 140</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">nombre</span>(<span class="ruby-identifier">name</span>)
+        <span class="ruby-ivar">@plateName</span> = <span class="ruby-identifier">name</span>
 <span class="ruby-keyword">end</span></pre>
           </div>
           
@@ -446,7 +530,7 @@
 
           
           <div class="method-source-code" id="nutricional_indicator-source">
-            <pre><span class="ruby-comment"># File lib/prct06/bundler.rb, line 219</span>
+            <pre><span class="ruby-comment"># File lib/prct06/bundler.rb, line 241</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">nutricional_indicator</span>()
         (<span class="ruby-identifier">indicator_energia</span>() <span class="ruby-operator">+</span> <span class="ruby-identifier">indicator_carbono</span>())<span class="ruby-operator">/</span><span class="ruby-value">2</span>
 <span class="ruby-keyword">end</span></pre>
@@ -479,7 +563,7 @@
 
           
           <div class="method-source-code" id="proteinsPercent-source">
-            <pre><span class="ruby-comment"># File lib/prct06/bundler.rb, line 129</span>
+            <pre><span class="ruby-comment"># File lib/prct06/bundler.rb, line 146</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">proteinsPercent</span>()
         <span class="ruby-identifier">plato</span> = <span class="ruby-ivar">@alimentsList</span>.<span class="ruby-identifier">head</span>
         <span class="ruby-identifier">grams</span> = <span class="ruby-ivar">@gramsList</span>.<span class="ruby-identifier">head</span>
@@ -525,7 +609,7 @@
 
           
           <div class="method-source-code" id="to_s-source">
-            <pre><span class="ruby-comment"># File lib/prct06/bundler.rb, line 239</span>
+            <pre><span class="ruby-comment"># File lib/prct06/bundler.rb, line 261</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">to_s</span>
         <span class="ruby-keyword">return</span> <span class="ruby-ivar">@plateName</span>
 <span class="ruby-keyword">end</span></pre>
@@ -558,7 +642,7 @@
 
           
           <div class="method-source-code" id="totalCaloricValue-source">
-            <pre><span class="ruby-comment"># File lib/prct06/bundler.rb, line 190</span>
+            <pre><span class="ruby-comment"># File lib/prct06/bundler.rb, line 207</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">totalCaloricValue</span>()
         <span class="ruby-identifier">plato</span> = <span class="ruby-ivar">@alimentsList</span>.<span class="ruby-identifier">head</span>
         <span class="ruby-identifier">grams</span> = <span class="ruby-ivar">@gramsList</span>.<span class="ruby-identifier">head</span>
