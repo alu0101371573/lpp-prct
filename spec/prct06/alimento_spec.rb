@@ -426,7 +426,7 @@ end
 
 RSpec.describe Plato do
 	context "should be able to use DSL" do
-		it "should create a new Plato object" do
+		it "to create a new Plato object" do
 
 			plato = Plato.new("Hamburguesa") do
 				nombre "Hamburguesa especial de la casa"
@@ -439,7 +439,7 @@ RSpec.describe Plato do
 			expect(plato.plateName).to eq "Hamburguesa especial de la casa"
 		end
 
-		it "" do
+		it "to create a new Menu object" do
 			menu = Menu.new("Combinado no. 1") do
 				descripcion "hamburguesa, papas, refresco"
 				componente :descripcion => "Hamburguesa especial de la casa",
@@ -449,9 +449,9 @@ RSpec.describe Plato do
 				componente :descripcion => "Refrescos de lata",
 				:precio => 1.50
 				precio 7.50
-				end
-
-			expect(menu.name).to eq "hamburguesa, papas, refresco"
+			end
+			expect(menu.name).to eq "Combinado no. 1"
+			expect(menu.description).to eq "hamburguesa, papas, refresco"
 		end
 	end
 end
@@ -646,6 +646,45 @@ RSpec.describe PlatoExtended do
 
 		it "should be comarable" do
 			expect(@plato1 > @plato2).to eq true
+		end
+	end
+end
+
+RSpec.describe Menu do
+	context "Using DSL to create a menu" do
+		before(:each) do
+			@comidas = List.new
+
+			@comidas.push(Alimento.new("Pollo", 1, 5.7, 7.1, 0.0, 20.6, 5.6))
+			@comidas.push(Alimento.new("Chocolate", 1, 2.3, 3.4, 47.0, 5.3, 30.0))
+			@comidas.push(Alimento.new("Lentejas", 1, 0.4, 3.4, 52.0, 23.5, 0.4))
+			@comidas.push(Alimento.new("Cerdo", 1, 7.6, 11.0, 0.0, 21.5, 6.3))
+		
+			@grams = List.new
+
+			@grams.push(300)	
+			@grams.push(300)
+			@grams.push(200)
+			@grams.push(200)
+
+			@plato = PlatoExtended.new("Spanish diet", @comidas, @grams)
+		end
+
+		it "Should present a pretty-print method" do
+			menu = Menu.new("Name of the menu") do
+				descripcion "Description of the menu"
+				plato :name => "Spanish Diet Plate",
+					  :alimentsList => @comidas,
+					  :gramsList => @grams,
+					  :precio => 21
+				precio 42.42
+			end
+
+			puts menu
+			expect(menu.to_s != "").to eq true
+			expect(menu.price).to eq 42.42
+			expect(menu.name).to eq "Name of the menu"
+			expect(menu.description).to eq "Description of the menu"
 		end
 	end
 end
