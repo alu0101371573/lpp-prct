@@ -314,7 +314,12 @@ module Prct06
 			end
 
 			def plato(opt)
-				newPlato = PlatoExtended.new(opt[:name], opt[:alimentsList], opt[:gramsList])
+				alimentsList = List.new
+				gramsList = List.new
+				opt[:alimentsList].each { |aliment| alimentsList.push(aliment) }
+				opt[:gramsList].each { |grams| gramsList.push(grams) }
+
+				newPlato = PlatoExtended.new(opt[:name], alimentsList, gramsList)
 				@dishes.push(newPlato)
 				@prices.push(opt[:precio])
 			end
@@ -323,39 +328,30 @@ module Prct06
 			# The carbs percentage of a menu is calculated as the average
 			# of the carbs presents in the dishes which compose it
 			def carbsPercent()
-				tot = 0.0
-				@dishes.each { |dish| tot += dish.carbsPercent() }
+				tot = @dishes.inject(0.0) { |tot, dish| tot += dish.carbsPercent() }
 				return tot / @dishes.length
 			end
 
 			def proteinsPercent()
-				tot = 0.0
-				@dishes.each { |dish| tot += dish.proteinsPercent() }
+				tot = @dishes.inject(0.0) { |tot, dish| tot += dish.proteinsPercent() }
 				return tot / @dishes.length
 			end
 
 			def fatPercent()
-				tot = 0.0
-				@dishes.each { |dish| tot += dish.lipidsPercent() }
+				tot = @dishes.inject(0.0) { |tot, dish| tot += dish.lipidsPercent() }
 				return tot / @dishes.length
 			end
 
 			def totalCaloricValue()
-				tot = 0.0
-				@dishes.each { |dish| tot += dish.totalCaloricValue() }
-				return tot
+				return @dishes.inject(0.0) { |tot, dish| tot += dish.totalCaloricValue() }
 			end
 
 			def totalGEI()
-				tot = 0.0
-				@dishes.each { |dish| tot += dish.totalGei() }
-				return tot
+				return @dishes.inject(0.0) { |tot, dish| tot += dish.totalGei() }
 			end
 
 			def totalTerreno()
-				tot = 0.0
-				@dishes.each { |dish| tot += dish.totalTerreno() }
-				return tot
+				return @dishes.inject(0.0) { |tot, dish| tot += dish.totalTerreno() }
 			end
 
 			def to_s

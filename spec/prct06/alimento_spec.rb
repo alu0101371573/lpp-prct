@@ -652,30 +652,17 @@ end
 
 RSpec.describe Menu do
 	context "Using DSL to create a menu" do
-		before(:each) do
-			@comidas = List.new
-
-			@comidas.push(Alimento.new("Pollo", 1, 5.7, 7.1, 0.0, 20.6, 5.6))
-			@comidas.push(Alimento.new("Chocolate", 1, 2.3, 3.4, 47.0, 5.3, 30.0))
-			@comidas.push(Alimento.new("Lentejas", 1, 0.4, 3.4, 52.0, 23.5, 0.4))
-			@comidas.push(Alimento.new("Cerdo", 1, 7.6, 11.0, 0.0, 21.5, 6.3))
-		
-			@grams = List.new
-
-			@grams.push(300)	
-			@grams.push(300)
-			@grams.push(200)
-			@grams.push(200)
-
-			@plato = PlatoExtended.new("Spanish diet", @comidas, @grams)
-		end
-
-		it "Should present a pretty-print method" do
+			it "Should present a pretty-print method" do
 			menu = Menu.new("Name of the menu") do
 				descripcion "Description of the menu"
 				plato :name => "Spanish Diet Plate",
-					  :alimentsList => @comidas,
-					  :gramsList => @grams,
+					  :alimentsList => [
+						  	Alimento.new("Pollo", 1, 5.7, 7.1, 0.0, 20.6, 5.6),
+							Alimento.new("Chocolate", 1, 2.3, 3.4, 47.0, 5.3, 30.0),
+							Alimento.new("Lentejas", 1, 0.4, 3.4, 52.0, 23.5, 0.4),
+							Alimento.new("Cerdo", 1, 7.6, 11.0, 0.0, 21.5, 6.3)
+					  ],
+					  :gramsList => [300, 300, 200, 200],
 					  :precio => 21
 				precio 42.42
 			end
