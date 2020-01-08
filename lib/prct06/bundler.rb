@@ -118,10 +118,32 @@ module Prct06
 		class Plato
 			attr_reader :plateName, :alimentsList, :gramsList
 
-			def initialize(name, alimentsList, gramsList)
+			def initialize(name, alimentsList=nil, gramsList=nil, &block)
 				@plateName = name
-				@alimentsList = alimentsList
-				@gramsList = gramsList
+				if alimentsList != nil
+					@alimentsList = alimentsList
+					@gramsList = gramsList
+				else
+					@alimentsList = List.new
+					@gramsList = List.new
+				end
+
+				if block_given?
+					if block.arity == 1
+					  	yield self
+					else
+					 	instance_eval(&block) 
+					end
+				end
+			end
+
+			def nombre(name)
+				@plateName = name
+			end
+
+			def alimento(opt)
+				@alimentsList.push(opt[:descripcion])
+				@gramsList.push(opt[:gramos])
 			end
 
 			##
@@ -239,6 +261,15 @@ module Prct06
 			def to_s
 				return @plateName
 			end
+		end
+
+		##
+		# A menu is formed by a set of dishes each associated with their prices.
+		# The menu also has a name and a total price.
+		# Remember that a Dish (Plato) is itself defined by a set of Aliments
+		# each associated with the amount of grams.
+		class Menu
+			
 		end
 
 		##

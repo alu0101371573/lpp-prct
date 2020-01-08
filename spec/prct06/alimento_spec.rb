@@ -424,6 +424,38 @@ RSpec.describe Alimento do
 
 end
 
+RSpec.describe Plato do
+	context "should be able to use DSL" do
+		it "should create a new Plato object" do
+
+			plato = Plato.new("Hamburguesa") do
+				nombre "Hamburguesa especial de la casa"
+				alimento :descripcion => "carne de vaca",
+				:gramos => 100
+				alimento :descripcion => "huevo",
+				:gramos => 20
+			end
+
+			expect(plato.plateName).to eq "Hamburguesa especial de la casa"
+		end
+
+		it "" do
+			menu = Menu.new("Combinado no. 1") do
+				descripcion "hamburguesa, papas, refresco"
+				componente :descripcion => "Hamburguesa especial de la casa",
+				:precio => 4.25
+				componente :descripcion => "Papas peque~nas",
+				:precio => 1.75
+				componente :descripcion => "Refrescos de lata",
+				:precio => 1.50
+				precio 7.50
+				end
+
+			expect(menu.name).to eq "hamburguesa, papas, refresco"
+		end
+	end
+end
+
 RSpec.describe PlatoExtended do
 	context "with a dish" do
 		before(:each) do
