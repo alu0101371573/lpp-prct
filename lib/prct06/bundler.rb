@@ -118,10 +118,27 @@ module Prct06
 		class Plato
 			attr_reader :plateName, :alimentsList, :gramsList
 
-			def initialize(name, alimentsList, gramsList)
+			def initialize(name, alimentsList=nil, gramsList=nil, &block)
 				@plateName = name
-				@alimentsList = alimentsList
-				@gramsList = gramsList
+				if alimentsList != nil
+					@alimentsList = alimentsList
+					@gramsList = gramsList
+				else
+					@alimentsList = List.new
+					@gramsList = List.new
+				end
+
+				if block_given?
+					if block.arity == 1
+					  	yield self
+					else
+					 	instance_eval(&block) 
+					end
+				end
+			end
+
+			def nombre(name)
+				@plateName = name
 			end
 
 			##
@@ -182,7 +199,7 @@ module Prct06
 			end
 
 			def co2Percent()
-
+				
 			end
 
 			##
@@ -199,6 +216,11 @@ module Prct06
 				end
 
 				return total
+			end
+
+			def alimento(opt)
+				@alimentsList.push(opt[:descripcion])
+				@gramsList.push(opt[:gramos])
 			end
 
 			##
@@ -238,6 +260,117 @@ module Prct06
 
 			def to_s
 				return @plateName
+			end
+		end
+
+		##
+		# A menu is formed by a set of dishes each associated with their prices.
+		# The menu also has a name and a total price.
+		# Remember that a Dish (Plato) is itself defined by a set of Aliments
+		# each associated with the amount of grams.
+		# We don't assume that the total price is equal to the sum of the
+		# singular prices since the preparation of a menu might account for
+		# an additional price.
+		# It exposes an internet DSL in order to create new object more naturally.
+		class Menu
+			attr_reader :name, :description, :dishes, :prices, :price
+
+			def initialize(name, description=nil, dishes=nil, prices=nil, price=nil, &block)
+				@name = name
+
+				if dishes != nil
+					@dishes = dishes
+				else
+					@dishes = List.new
+				end
+
+				if prices != nil
+					@prices = prices
+				else
+					@prices = List.new
+				end
+				@price = price
+
+				if block_given?
+					if block.arity == 1
+					  	yield self
+					else
+					 	instance_eval(&block) 
+					end
+				end
+			end
+
+			def descripcion(name)
+				@description = name
+			end
+
+			def componente(options={})
+				@dishes.push(options[:descripcion])
+				@prices.push(options[:precio])
+			end
+
+			def precio(price)
+				@price = price
+			end
+
+			def plato(opt)
+				alimentsList = List.new
+				gramsList = List.new
+				opt[:alimentsList].each { |aliment| alimentsList.push(aliment) }
+				opt[:gramsList].each { |grams| gramsList.push(grams) }
+
+				newPlato = PlatoExtended.new(opt[:name], alimentsList, gramsList)
+				@dishes.push(newPlato)
+				@prices.push(opt[:precio])
+			end
+
+			##
+			# The carbs percentage of a menu is calculated as the average
+			# of the carbs presents in the dishes which compose it
+			def carbsPercent()
+				tot = @dishes.inject(0.0) { |tot, dish| tot += dish.carbsPercent() }
+				return tot / @dishes.length
+			end
+
+			def proteinsPercent()
+				tot = @dishes.inject(0.0) { |tot, dish| tot += dish.proteinsPercent() }
+				return tot / @dishes.length
+			end
+
+			def fatPercent()
+				tot = @dishes.inject(0.0) { |tot, dish| tot += dish.lipidsPercent() }
+				return tot / @dishes.length
+			end
+
+			def totalCaloricValue()
+				return @dishes.inject(0.0) { |tot, dish| tot += dish.totalCaloricValue() }
+			end
+
+			def totalGEI()
+				return @dishes.inject(0.0) { |tot, dish| tot += dish.totalGei() }
+			end
+
+			def totalTerreno()
+				return @dishes.inject(0.0) { |tot, dish| tot += dish.totalTerreno() }
+			end
+
+			def to_s
+				puts "=== #{@name} ==="
+				puts "#{@description}"
+				puts "Composed of:"
+				@dishes.each_with_index do |dish, index| 
+					puts "- #{dish} #{@prices.get_at(index).value}€"
+				end
+				puts "\nNutritional values:"
+				puts "Carbs #{carbsPercent().round(2)}%"
+				puts "Proteins #{proteinsPercent().round(2)}%"
+				puts "Fat #{fatPercent().round(2)}%"
+				puts "#{totalCaloricValue().round(2)} kcal"
+
+				puts "\nAmbiental values:"
+				puts "#{totalGEI()} co2"
+				puts "#{totalTerreno()} terreno"
+				puts "\nTotal Price = #{@price}"
 			end
 		end
 
