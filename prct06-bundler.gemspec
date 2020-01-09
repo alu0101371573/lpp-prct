@@ -12,7 +12,7 @@ Gem::Specification.new do |spec|
   spec.description   = %q{The class Alimento, which is definined in prct06-bundler::Bundler, describes the environment impact of different foods.}
   spec.homepage      = "https://github.com/ULL-ESIT-LPP-1920/tdd-alu0101371573"
 
-  spec.metadata["allowed_push_host"] = "Tto 'http://mygemserver.com'"
+  spec.metadata["allowed_push_host"] = "to 'http://mygemserver.com'"
 
   # spec.metadata["homepage_uri"] = spec.homepage
   # spec.metadata["source_code_uri"] = "TODO: Put your gem's public repo URL here."
