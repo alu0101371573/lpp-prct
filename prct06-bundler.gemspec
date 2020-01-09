@@ -12,10 +12,10 @@ Gem::Specification.new do |spec|
   spec.description   = %q{The class Alimento, which is definined in prct06-bundler::Bundler, describes the environment impact of different foods.}
   spec.homepage      = "https://github.com/ULL-ESIT-LPP-1920/tdd-alu0101371573"
 
-  spec.metadata["allowed_push_host"] = "to 'http://mygemserver.com'"
+  #spec.metadata["allowed_push_host"] = "to 'https://rubygems.org'"
 
   # spec.metadata["homepage_uri"] = spec.homepage
-  # spec.metadata["source_code_uri"] = "TODO: Put your gem's public repo URL here."
+  # spec.metadata["source_code_uri"] = "https://github.com/alu0101371573/lpp-prct"
   # spec.metadata["changelog_uri"] = "TODO: Put your gem's CHANGELOG.md URL here."
 
   # Specify which files should be added to the gem when it is released.
